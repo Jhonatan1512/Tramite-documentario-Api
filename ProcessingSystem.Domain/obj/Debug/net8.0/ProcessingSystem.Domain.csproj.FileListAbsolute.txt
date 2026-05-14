@@ -1,0 +1,14 @@
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\bin\Debug\net8.0\ProcessingSystem.Domain.deps.json
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\bin\Debug\net8.0\ProcessingSystem.Domain.runtimeconfig.json
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\bin\Debug\net8.0\ProcessingSystem.Domain.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\bin\Debug\net8.0\ProcessingSystem.Domain.pdb
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.AssemblyInfoInputs.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.AssemblyInfo.cs
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.csproj.CoreCompileInputs.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\refint\ProcessingSystem.Domain.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.pdb
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.genruntimeconfig.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ref\ProcessingSystem.Domain.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.csproj.AssemblyReference.cache

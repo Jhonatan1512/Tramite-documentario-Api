@@ -1,0 +1,17 @@
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Application.deps.json
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Application.runtimeconfig.json
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Application.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Application.pdb
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Domain.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\bin\Debug\net8.0\ProcessingSystem.Domain.pdb
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.csproj.AssemblyReference.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.AssemblyInfoInputs.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.AssemblyInfo.cs
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.csproj.CoreCompileInputs.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\Processi.5115B253.Up2Date
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\refint\ProcessingSystem.Application.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.pdb
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.genruntimeconfig.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ref\ProcessingSystem.Application.dll

@@ -1,0 +1,60 @@
+[
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
+    "Method": "CrearOficina",
+    "RelativePath": "api/Oficinas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.OficinaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.PersonalController",
+    "Method": "CearPersonal",
+    "RelativePath": "api/Personal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.PersonalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
+    "Method": "Gett",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
+    "Method": "Crear",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.UsuariosDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
