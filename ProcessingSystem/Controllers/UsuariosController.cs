@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Interfaces;
@@ -19,6 +21,7 @@ namespace ProcessingSystem.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Personal")]
         public async Task<ActionResult> Gett()
         {
             try
@@ -31,7 +34,7 @@ namespace ProcessingSystem.Api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("registrarse")]
         public async Task<ActionResult> Crear(UsuariosDto dto)
         {
             try
@@ -41,6 +44,28 @@ namespace ProcessingSystem.Api.Controllers
             } catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("actualizar-datos")]
+        [Authorize(Roles = "Ciudadano")]
+        public async Task<IActionResult> ActualizarDatos([FromBody] ActualizarUsuarioDto dto)
+        {
+            try
+            {
+                var usuarioIdClaims = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrWhiteSpace(usuarioIdClaims))
+                {
+                    return Unauthorized();
+                }
+
+                Guid userId = Guid.Parse(usuarioIdClaims);
+                await _usuarioService.ActualizarUsuarioAsync(userId, dto);
+                return Ok(new {menssage = "Datos Actualizados"});
+
+            } catch (Exception ex)
+            {
+                return BadRequest(new {error = ex.Message });
             }
         }
     }

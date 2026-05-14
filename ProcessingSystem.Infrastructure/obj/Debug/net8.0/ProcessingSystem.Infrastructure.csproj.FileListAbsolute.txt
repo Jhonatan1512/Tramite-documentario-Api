@@ -17,3 +17,4 @@ D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Infrastructure\
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Infrastructure\obj\Debug\net8.0\ProcessingSystem.Infrastructure.pdb
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Infrastructure\obj\Debug\net8.0\ProcessingSystem.Infrastructure.genruntimeconfig.cache
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Infrastructure\obj\Debug\net8.0\ref\ProcessingSystem.Infrastructure.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Infrastructure\obj\Debug\net8.0\ProcessingSystem.Infrastructure.sourcelink.json

@@ -3,23 +3,30 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\usuariosdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E818628-7FBE-46E3-8617-CE157B556AE2}|..\\ProcessingSystem.Domain\\ProcessingSystem.Domain.csproj|d:\\document-processing-system\\processing-system\\processingsystem.domain\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}|..\\ProcessingSystem.Infrastructure\\ProcessingSystem.Infrastructure.csproj|d:\\document-processing-system\\processing-system\\processingsystem.infrastructure\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E818628-7FBE-46E3-8617-CE157B556AE2}|..\\ProcessingSystem.Domain\\ProcessingSystem.Domain.csproj|d:\\document-processing-system\\processing-system\\processingsystem.domain\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,80 +40,93 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC4AAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwDwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:52:00.892Z",
+              "WhenOpened": "2026-05-14T22:39:17.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IUsuarioService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwDIAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:22:48.825Z",
+              "WhenOpened": "2026-05-14T22:10:43.81Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UsuariosDto.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAowBgAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:22:09.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "UsuarioService.cs",
               "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
               "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
               "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
               "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAAAC0AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwCgAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:20:36.377Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUsuarioRepository.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:19:30.82Z",
+              "WhenOpened": "2026-05-14T21:56:32.62Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "IUsuarioService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T21:56:09.413Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UsuariosDto.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCMAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T21:54:56.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UsuarioRepository.cs",
               "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "..\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
               "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
               "RelativeToolTip": "..\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwC0AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T15:19:19.064Z",
+              "WhenOpened": "2026-05-14T20:15:01.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IUsuarioRepository.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T20:14:32.089Z",
               "EditorCaption": ""
             },
             {
@@ -116,6 +136,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T19:53:56.991Z",
+              "EditorCaption": ""
             }
           ]
         }

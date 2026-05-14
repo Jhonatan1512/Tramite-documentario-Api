@@ -11,5 +11,6 @@ namespace ProcessingSystem.Application.Interfaces
     public interface IUsuarioService
     {
         Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto);
+        Task ActualizarUsuarioAsync(Guid id, ActualizarUsuarioDto dto);
     }
 }

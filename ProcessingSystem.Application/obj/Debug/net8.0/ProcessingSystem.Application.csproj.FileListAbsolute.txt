@@ -15,3 +15,4 @@ D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.pdb
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.genruntimeconfig.cache
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ref\ProcessingSystem.Application.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Application\obj\Debug\net8.0\ProcessingSystem.Application.sourcelink.json

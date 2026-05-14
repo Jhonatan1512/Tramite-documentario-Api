@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "ProcessingSystem.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
     "Method": "CrearOficina",
     "RelativePath": "api/Oficinas",
@@ -43,8 +59,24 @@
   },
   {
     "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
+    "Method": "ActualizarDatos",
+    "RelativePath": "api/Usuarios/actualizar-datos",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
     "Method": "Crear",
-    "RelativePath": "api/Usuarios",
+    "RelativePath": "api/Usuarios/registrarse",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

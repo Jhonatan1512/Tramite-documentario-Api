@@ -148,3 +148,7 @@ D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Mapster.Core.dll
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Mapster.DependencyInjection.dll
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\JWT.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\obj\Debug\net8.0\ProcessingSystem.Api.sourcelink.json

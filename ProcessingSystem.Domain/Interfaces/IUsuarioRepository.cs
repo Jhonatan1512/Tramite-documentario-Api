@@ -12,5 +12,7 @@ namespace ProcessingSystem.Domain.Interfaces
         Task<IEnumerable<Usuarios>> GetAll();
         Task<Usuarios> CrearUsuarioAsync(Usuarios usuario);
         Task<Usuarios?> ObtenerPorDniAsync(string dni);
+        Task<Usuarios?> ObtenerPorId(Guid usuarioId);
+        Task ActualizarUsuarioAsync(Usuarios usuarios);
     }
 }

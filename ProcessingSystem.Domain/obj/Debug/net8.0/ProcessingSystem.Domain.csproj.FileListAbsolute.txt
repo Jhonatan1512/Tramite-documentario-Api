@@ -12,3 +12,4 @@ D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debu
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.genruntimeconfig.cache
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ref\ProcessingSystem.Domain.dll
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.csproj.AssemblyReference.cache
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Domain\obj\Debug\net8.0\ProcessingSystem.Domain.sourcelink.json

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProcessingSystem.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CracionDB : Migration
+    public partial class CreacionBD : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -343,7 +343,7 @@ namespace ProcessingSystem.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("f22687c4-279e-473d-829d-476775988e40"), 0, "c85bfcd3-503e-4369-97a8-8e21cee77754", "admin@ejemplo.gob.pe", true, false, null, "ADMIN@EJEMPLO.GOB.PE", "ADMIN@EJEMPLO.GOB.PE", "AQAAAAIAAYagAAAAEA0KBYPtJLeg3JDfn2dDUT4jy80bM6LxdYtt/ZyzYpzj0DAZ6jFrwygCgegPHrR8rQ==", null, false, "a50ca70b-ea92-4e78-94ca-3260251bdf36", false, "admin@ejemplo.gob.pe" });
+                values: new object[] { new Guid("f22687c4-279e-473d-829d-476775988e40"), 0, "4f8633d6-a86b-4f58-8c24-9e366b85118e", "admin@ejemplo.gob.pe", true, false, null, "ADMIN@EJEMPLO.GOB.PE", "ADMIN@EJEMPLO.GOB.PE", "AQAAAAIAAYagAAAAEIbY+VF75OM2hJUOE8jIK0hkCzC17sdmmTFjnZRHJ/i1zGdvMiV6ioZTZj4Ie24mwg==", null, false, "93637478-5eb6-482c-8420-9dbeed3ebadb", false, "admin@ejemplo.gob.pe" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",

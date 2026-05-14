@@ -20,13 +20,17 @@ namespace ProcessingSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Usuarios> CrearUsuarioAsync(Usuarios usuario)
+        public async Task ActualizarUsuarioAsync(Usuarios usuarios)
         {
-            
+            _context.Usuarios.Update(usuarios);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<Usuarios> CrearUsuarioAsync(Usuarios usuario)
+        {            
             await _context.Usuarios.AddAsync(usuario);
             await _context.SaveChangesAsync();
             return usuario;
-
         }
 
         public async Task<IEnumerable<Usuarios>> GetAll() 
@@ -43,6 +47,11 @@ namespace ProcessingSystem.Infrastructure.Repositories
         public async Task<Usuarios?> ObtenerPorDniAsync(string dni)
         {
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.Dni == dni);
+        }
+
+        public async Task<Usuarios?> ObtenerPorId(Guid usuarioId)
+        {
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.UserId == usuarioId);
         }
     }
 }

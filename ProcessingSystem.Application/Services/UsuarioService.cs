@@ -24,6 +24,33 @@ namespace ProcessingSystem.Application.Services
             _userManager = userManager;
             _roleManager = roleManager;
         }
+
+        public async Task ActualizarUsuarioAsync(Guid id, ActualizarUsuarioDto dto)
+        {
+            var usuario = await _usuarioRepository.ObtenerPorId(id);
+            if (usuario == null)
+            {
+                throw new Exception("El usuario no existe");
+            }
+
+            if(usuario.Dni != dto.Dni)
+            {
+                var dniExiste = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
+                if(dniExiste != null)
+                {
+                    throw new Exception("El dni ya esta registrado en la BD");
+                }
+            }
+
+            usuario.Nombre = dto.Nombre;
+            usuario.Apellidos = dto.Apellidos;
+            usuario.Dni = dto.Dni;
+            usuario.FechaModificacion = dto.FechaModificacion;
+            usuario.UsuarioModificacion = usuario.Id.ToString();
+
+            await _usuarioRepository.ActualizarUsuarioAsync(usuario);            
+        }
+
         public async Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto)
         {
             var existeDni = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
