@@ -3,30 +3,26 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\expedienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\usuariosdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\expedientedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E818628-7FBE-46E3-8617-CE157B556AE2}|..\\ProcessingSystem.Domain\\ProcessingSystem.Domain.csproj|d:\\document-processing-system\\processing-system\\processingsystem.domain\\entities\\expediente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\interfaces\\iexpedienteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\interfaces\\iusuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}|..\\ProcessingSystem.Infrastructure\\ProcessingSystem.Infrastructure.csproj|d:\\document-processing-system\\processing-system\\processingsystem.infrastructure\\repositories\\expedienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}|..\\ProcessingSystem.Infrastructure\\ProcessingSystem.Infrastructure.csproj|d:\\document-processing-system\\processing-system\\processingsystem.infrastructure\\repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\controllers\\expedientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:controllers\\expedientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E818628-7FBE-46E3-8617-CE157B556AE2}|..\\ProcessingSystem.Domain\\ProcessingSystem.Domain.csproj|d:\\document-processing-system\\processing-system\\processingsystem.domain\\interfaces\\iusuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E818628-7FBE-46E3-8617-CE157B556AE2}|..\\ProcessingSystem.Domain\\ProcessingSystem.Domain.csproj|d:\\document-processing-system\\processing-system\\processingsystem.domain\\interfaces\\iexpedienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,99 +32,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAwDwAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T22:39:17.036Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UsuariosController.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\UsuariosController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuariosController.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\UsuariosController.cs",
-              "RelativeToolTip": "Controllers\\UsuariosController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDIAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T22:10:43.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCgAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T21:56:32.62Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUsuarioService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Interfaces\\IUsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T21:56:09.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsuariosDto.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwCMAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T21:54:56.732Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Infrastructure\\Repositories\\UsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T20:15:01.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IUsuarioRepository.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Domain\\Interfaces\\IUsuarioRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T20:14:32.089Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
@@ -139,15 +44,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA8AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ExpedienteController.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\ExpedienteController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ExpedienteController.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\ExpedienteController.cs",
+              "RelativeToolTip": "Controllers\\ExpedienteController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAuwFUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T19:53:56.991Z",
+              "WhenOpened": "2026-05-19T19:49:03.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExpedienteService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\ExpedienteService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\ExpedienteService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\ExpedienteService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\ExpedienteService.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAQwLsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:11:57.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IExpedienteService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IExpedienteService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Interfaces\\IExpedienteService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IExpedienteService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Interfaces\\IExpedienteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:11:12.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ExpedienteDto.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\ExpedienteDto.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\ExpedienteDto.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\ExpedienteDto.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\ExpedienteDto.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwB4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:10:16.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ExpedienteRepository.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\ExpedienteRepository.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Infrastructure\\Repositories\\ExpedienteRepository.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\ExpedienteRepository.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Infrastructure\\Repositories\\ExpedienteRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAxwC4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:05:29.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IExpedienteRepository.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IExpedienteRepository.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Domain\\Interfaces\\IExpedienteRepository.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Interfaces\\IExpedienteRepository.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Domain\\Interfaces\\IExpedienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T17:04:41.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Expediente.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Entities\\Expediente.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Domain\\Entities\\Expediente.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Domain\\Entities\\Expediente.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Domain\\Entities\\Expediente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T16:51:42.731Z",
               "EditorCaption": ""
             }
           ]

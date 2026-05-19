@@ -16,6 +16,69 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
+    "Method": "Eliminarexpediente",
+    "RelativePath": "api/Expediente/{expedienteId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
+    "Method": "ActualizarExpediente",
+    "RelativePath": "api/Expediente/actualizar-expediente/{expedienteId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "expedienteId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ExpedienteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
+    "Method": "Crearexpediente",
+    "RelativePath": "api/Expediente/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ExpedienteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
+    "Method": "GetAll",
+    "RelativePath": "api/Expediente/todos-los-expedientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
     "Method": "CrearOficina",
     "RelativePath": "api/Oficinas",
@@ -45,6 +108,53 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.TipoDocumentoController",
+    "Method": "CrearTipoDocumento",
+    "RelativePath": "api/TipoDocumento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.TipoDocumentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.TipoDocumentoController",
+    "Method": "ActualizarTipoDocumento",
+    "RelativePath": "api/TipoDocumento/actualizar-tipo-documento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarTipoDocumentoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.TipoDocumentoController",
+    "Method": "ObetenerTodos",
+    "RelativePath": "api/TipoDocumento/lista-tipo-documentos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -56,14 +56,14 @@ namespace ProcessingSystem.Application.Services
                 if (ciudadano != null)
                 {
                     nameToken = $"{ciudadano.Nombre} {ciudadano.Apellidos}";
-                    userId = ciudadano.Id.ToString();
+                    //userId = ciudadano.Id.ToString();
                 } else
                 {
                     var personal = await _usuarioRepository.ObtenerPorId(user.Id);
                     if(personal != null)
                     {
                         nameToken = $"{personal.Nombre} {personal.Apellidos}";
-                        userId = personal.Id.ToString();
+                        //userId = personal.Id.ToString();
                     }
                 }
             }
@@ -74,7 +74,7 @@ namespace ProcessingSystem.Application.Services
                 new Claim(JwtRegisteredClaimNames.Email, user.Email!),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("nombre", nameToken),
-                new Claim("id", userId.ToString())
+                new Claim("id", userId)
             };
 
             foreach (var role in roles)

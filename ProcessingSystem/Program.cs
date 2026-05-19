@@ -27,6 +27,10 @@ builder.Services.AddScoped<IOficinaService, OficinaService>();
 builder.Services.AddScoped<IPersonalRepository, PersonalRepository>();
 builder.Services.AddScoped<IPersonalService, PersonalService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITipoDocumentoRepository, TipoDocumentoRepository>();
+builder.Services.AddScoped<ITipoDocumentoService, TipoDocumentoService>();
+builder.Services.AddScoped<IExpedienteRepository, ExpedienteRepository>();
+builder.Services.AddScoped<IExpedienteService, ExpedienteService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
