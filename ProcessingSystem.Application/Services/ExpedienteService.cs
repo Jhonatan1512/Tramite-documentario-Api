@@ -4,53 +4,26 @@ using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Services
 {
     public class ExpedienteService : IExpedienteService
     {
         private readonly IExpedienteRepository _expedienteRepository;
-        private readonly IUsuarioRepository _usuarioRepository;
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
         private readonly ITipoDocumentoRepository _tipoDocumentoRepository;
+        private readonly IUsuarioContextService _usuarioContextService;
 
-        public ExpedienteService(IExpedienteRepository expedienteRepository, 
-            IUsuarioRepository usuarioRepository, UserManager<IdentityUser<Guid>> userManager, ITipoDocumentoRepository tipoDocumentoRepository)
+        public ExpedienteService(IExpedienteRepository expedienteRepository,              
+            ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioContextService usuarioContextService)
         {
             _expedienteRepository = expedienteRepository;
-            _usuarioRepository = usuarioRepository;
-            _userManager = userManager;
             _tipoDocumentoRepository = tipoDocumentoRepository;
+            _usuarioContextService = usuarioContextService;
         }
 
         public async Task ActualizarExpedienteAsync(Guid expedienteId, Guid usuarioId, ExpedienteDto dto)
         {
-            var usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioId);
-            string usuarioActualizacionId;
-            if(usuarioNegocio != null)
-            {
-                usuarioActualizacionId = usuarioNegocio.Id.ToString();
-            } else
-            {
-                var usuarioIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
-                if(usuarioIdentity == null)
-                {
-                    throw new Exception("el usuario no existe");
-                }
-
-                usuarioActualizacionId = usuarioIdentity.Id.ToString();
-
-                usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioIdentity.Id);
-                if (usuarioNegocio == null)
-                {
-                    throw new Exception("Para actualizar un expediente, el ciudadano debe estar  activo");
-                }
-            }
+            var (_, usuarioActualizacionId) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "actualizar un expediente");
 
             var expedienteExiste = await _expedienteRepository.BuscarExpedientePorIdAsync(expedienteId);
             if(expedienteExiste == null)
@@ -68,64 +41,24 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<GetExpedienteDto> CrearExpedienteAsync(Guid creadorId, ExpedienteDto dto)
         {
-            var usuarioNegocio = await _usuarioRepository.ObtenerPorId(creadorId);
-            string usuarioCreacionId;
-            if (usuarioNegocio != null)
-            {
-                usuarioCreacionId = usuarioNegocio.Id.ToString();
-            } else
-            {
-                var usuarioIdentity = await _userManager.FindByIdAsync(creadorId.ToString());
-                if(usuarioIdentity == null)
-                {
-                    throw new Exception("el usuario no existe");
-                }
-
-                usuarioCreacionId = usuarioIdentity.Id.ToString();
-
-                usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioIdentity.Id);
-                if (usuarioNegocio == null)
-                {
-                    throw new Exception("Para crear un expediente, el ciudadano debe estar activo.");
-                }
-            }
+            var (usuarioNegocio, usuarioCreacionId) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(creadorId, "crear un expediente");
 
             var nuevoExpediente = dto.Adapt<Expediente>();
             nuevoExpediente.UsuarioId = usuarioNegocio.Id;
             nuevoExpediente.Estado = EstadoExpediente.Registrado;
             nuevoExpediente.UsuarioCreacion = usuarioCreacionId;
 
-            int numeroExpediente = (await _expedienteRepository.ObtenerTodoslosExpedientesAsync(creadorId)).Count() + 1;
-            nuevoExpediente.NumeroExpediente = $"EXP-{DateTime.Now.Year}-{numeroExpediente.ToString("D4")}";
+            int totalExpedientes = await _expedienteRepository.ContarExpedientesPorUsuario();
+            int numeroSiguiente = totalExpedientes + 1;
+            nuevoExpediente.NumeroExpediente = $"EXP-{DateTime.Now.Year}-{numeroSiguiente.ToString("D4")}";
 
             var result = await _expedienteRepository.CrearExpedienteAsync(nuevoExpediente);
-
             return result.Adapt<GetExpedienteDto>();
         }
 
         public async Task EliminarExpedienteService(Guid expedienteId, Guid usuarioId)
         {
-            var usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioId);
-            string usucarioEliminacionId;
-            if(usuarioNegocio != null)
-            {
-                usucarioEliminacionId = usuarioNegocio.Id.ToString();
-            } else
-            {
-                var usuarioIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
-                if(usuarioIdentity == null)
-                {
-                    throw new Exception("No esta autorizado para eliminar este registro");
-                }
-
-                usucarioEliminacionId = usuarioIdentity.Id.ToString();
-
-                usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioIdentity.Id);
-                if(usuarioNegocio == null)
-                {
-                    throw new Exception("Para eliminar este registro, el ciudadano debe estar activo");
-                }
-            }
+            var (usuarioNegocio, _) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "eliminar este registro");
 
             var expedienteExiste = await _expedienteRepository.BuscarExpedientePorIdAsync(expedienteId);
             if(expedienteExiste == null)
@@ -138,54 +71,22 @@ namespace ProcessingSystem.Application.Services
                 throw new Exception("No tiene las credenciales para eliminar este registro");
             }
 
-            await _expedienteRepository.EliminarExpedienteAsync(expedienteId, usuarioNegocio.Id);
+            await _expedienteRepository.EliminarExpedienteAsync(expedienteId);
         }
 
         public async Task<IEnumerable<GetAllExpedientesDto>> GetExpedienteListAsync(Guid usuarioId)
         {
-            var usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioId);
-            string usucarioConsultaId;
-            if (usuarioNegocio != null)
-            {
-                usucarioConsultaId = usuarioNegocio.Id.ToString();
-            }
-            else
-            {
-                var usuarioIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
-                if (usuarioIdentity == null)
-                {
-                    throw new Exception("No esta autorizado para eliminar este registro");
-                }
-
-                usucarioConsultaId = usuarioIdentity.Id.ToString();
-
-                usuarioNegocio = await _usuarioRepository.ObtenerPorId(usuarioIdentity.Id);
-                if (usuarioNegocio == null)
-                {
-                    throw new Exception("Para eliminar este registro, el ciudadano debe estar activo");
-                }
-            }
+            var (usuarioNegocio, _) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "Consultar los expedientes");
 
             var resultDto = await _expedienteRepository.ObtenerTodoslosExpedientesAsync(usuarioNegocio.Id);
 
             var result = resultDto.Adapt<List<GetAllExpedientesDto>>();
 
-            foreach (var registro in result)
+            foreach (var registro in result.Where(r => r.TipoDocumentoId != Guid.Empty))
             {
-                if (registro.TipoDocumentoId != Guid.Empty)
-                {
-                    var tipoDocDb = await _tipoDocumentoRepository.GetTipodocumntoByIdAsync(registro.TipoDocumentoId);
-                    if (tipoDocDb != null)
-                    {
-                        registro.TipoDocumentoNombre = tipoDocDb.Nombre;
-                        continue;
-                    } else
-                    {
-                        registro.TipoDocumentoNombre = "Desconocido";
-                    }
-                }
+                var tipoDocDb = await _tipoDocumentoRepository.GetTipodocumntoByIdAsync(registro.TipoDocumentoId);
+                registro.TipoDocumentoNombre = tipoDocDb != null ? tipoDocDb.Nombre : "Sin Tipo";
             }
-
             return result;
         }
     }

@@ -12,7 +12,8 @@ namespace ProcessingSystem.Domain.Interfaces
         Task<Expediente> CrearExpedienteAsync(Expediente expediente);
         Task<Expediente?> BuscarExpedientePorIdAsync(Guid id);
         Task<IEnumerable<Expediente>> ObtenerTodoslosExpedientesAsync(Guid usuarioId);
+        Task<int> ContarExpedientesPorUsuario();
         Task ActualizarExpedienteAsync(Expediente expediente);
-        Task EliminarExpedienteAsync(Guid expedienteId, Guid usuarioId);
+        Task EliminarExpedienteAsync(Guid expedienteId);
     }
 }

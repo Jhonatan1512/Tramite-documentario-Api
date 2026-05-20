@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VIVs548Vqmw=",
+  "dgSpecHash": "71yN2sDYeEo=",
   "success": true,
   "projectFilePath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jjhon\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512",
     "C:\\Users\\jjhon\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\jjhon\\.nuget\\packages\\jwt\\11.0.0\\jwt.11.0.0.nupkg.sha512",
     "C:\\Users\\jjhon\\.nuget\\packages\\mapster\\10.0.7\\mapster.10.0.7.nupkg.sha512",

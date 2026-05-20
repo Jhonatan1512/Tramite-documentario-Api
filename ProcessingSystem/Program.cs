@@ -11,6 +11,9 @@ using ProcessingSystem.Infrastructure.Repositories;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using ProcessingSystem.Api.Middlewares;
+using FluentValidation;
+using ProcessingSystem.Application.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +34,7 @@ builder.Services.AddScoped<ITipoDocumentoRepository, TipoDocumentoRepository>();
 builder.Services.AddScoped<ITipoDocumentoService, TipoDocumentoService>();
 builder.Services.AddScoped<IExpedienteRepository, ExpedienteRepository>();
 builder.Services.AddScoped<IExpedienteService, ExpedienteService>();
+builder.Services.AddScoped<IUsuarioContextService, UsuarioContexService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -83,11 +87,21 @@ var config = TypeAdapterConfig.GlobalSettings;
 builder.Services.AddSingleton(config);
 builder.Services.AddScoped<IMapper, ServiceMapper>();
 
+//ValidatorFilter
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ValidationFilter>();
+});
+
+builder.Services.AddValidatorsFromAssemblyContaining<ExpedienteDtoValidator>();
+
 //Conección BD
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConexion")));
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {

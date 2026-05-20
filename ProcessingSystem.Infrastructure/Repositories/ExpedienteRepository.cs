@@ -30,6 +30,11 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return await _context.Expedientes.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<int> ContarExpedientesPorUsuario()
+        {
+            return await _context.Expedientes.CountAsync();
+        }
+
         public async Task<Expediente> CrearExpedienteAsync(Expediente expediente)
         {
             await _context.Expedientes.AddAsync(expediente);
@@ -37,16 +42,17 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return expediente;
         }
 
-        public async Task EliminarExpedienteAsync(Guid expedienteId, Guid usuarioId)
+        public async Task EliminarExpedienteAsync(Guid expedienteId)
         {
-            await _context.Expedientes.Where(e => e.Id == expedienteId && e.UsuarioCreacion == usuarioId.ToString()).ExecuteDeleteAsync();
+            await _context.Expedientes.Where(e => e.Id == expedienteId).ExecuteDeleteAsync();
         }
 
         public async Task<IEnumerable<Expediente>> ObtenerTodoslosExpedientesAsync(Guid usuarioId)
         {
             return await _context.Expedientes
                 .Include(e => e.TipoDocumento)
-                .Where(e => e.UsuarioCreacion == usuarioId.ToString()).ToListAsync();
+                .Where(e => e.UsuarioCreacion == usuarioId.ToString())
+                .ToListAsync();
         }
     }
 }
