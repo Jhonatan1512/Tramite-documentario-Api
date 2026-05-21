@@ -36,6 +36,110 @@
         }
       }
     },
+    "/api/DocumentoArchivo": {
+      "post": {
+        "tags": [
+          "DocumentoArchivo"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ExpedienteId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Archivo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ExpedienteId": {
+                  "style": "form"
+                },
+                "Archivo": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoArchivo/{archivoId}": {
+      "delete": {
+        "tags": [
+          "DocumentoArchivo"
+        ],
+        "parameters": [
+          {
+            "name": "archivoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DocumentoArchivo/actualizar-archivo": {
+      "put": {
+        "tags": [
+          "DocumentoArchivo"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ArchivoNuevo": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "ArchivoNuevo": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Expediente/registrar": {
       "post": {
         "tags": [
@@ -148,6 +252,48 @@
       "post": {
         "tags": [
           "Oficinas"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OficinaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OficinaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OficinaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Oficinas/actualizar/{id}": {
+      "put": {
+        "tags": [
+          "Oficinas"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -444,10 +590,6 @@
         "type": "object",
         "properties": {
           "nombre": {
-            "type": "string",
-            "nullable": true
-          },
-          "siglas": {
             "type": "string",
             "nullable": true
           },

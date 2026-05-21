@@ -16,6 +16,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProcessingSystem.Api.Controllers.DocumentoArchivoController",
+    "Method": "SubirArchivo",
+    "RelativePath": "api/DocumentoArchivo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ExpedienteId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Archivo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.DocumentoArchivoController",
+    "Method": "EliminarArchivo",
+    "RelativePath": "api/DocumentoArchivo/{archivoId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "archivoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.DocumentoArchivoController",
+    "Method": "ActualizarArchivo",
+    "RelativePath": "api/DocumentoArchivo/actualizar-archivo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "ArchivoNuevo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
     "Method": "Eliminarexpediente",
     "RelativePath": "api/Expediente/{expedienteId}",
@@ -86,6 +144,27 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.OficinaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
+    "Method": "ActualizarOficina",
+    "RelativePath": "api/Oficinas/actualizar/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
       {
         "Name": "dto",
         "Type": "ProcessingSystem.Application.DTOs.OficinaDto",

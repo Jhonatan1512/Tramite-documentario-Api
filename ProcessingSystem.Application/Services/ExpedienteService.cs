@@ -12,13 +12,16 @@ namespace ProcessingSystem.Application.Services
         private readonly IExpedienteRepository _expedienteRepository;
         private readonly ITipoDocumentoRepository _tipoDocumentoRepository;
         private readonly IUsuarioContextService _usuarioContextService;
+        private readonly IOficinaRepository _oficinaRepository;
 
         public ExpedienteService(IExpedienteRepository expedienteRepository,              
-            ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioContextService usuarioContextService)
+            ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioContextService usuarioContextService,
+            IOficinaRepository oficinaRepository)
         {
             _expedienteRepository = expedienteRepository;
             _tipoDocumentoRepository = tipoDocumentoRepository;
             _usuarioContextService = usuarioContextService;
+            _oficinaRepository = oficinaRepository;
         }
 
         public async Task ActualizarExpedienteAsync(Guid expedienteId, Guid usuarioId, ExpedienteDto dto)
@@ -43,10 +46,13 @@ namespace ProcessingSystem.Application.Services
         {
             var (usuarioNegocio, usuarioCreacionId) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(creadorId, "crear un expediente");
 
+            var esMesaDePartes = await _oficinaRepository.ObtenerMesaDePartesAsync();
+
             var nuevoExpediente = dto.Adapt<Expediente>();
             nuevoExpediente.UsuarioId = usuarioNegocio.Id;
             nuevoExpediente.Estado = EstadoExpediente.Registrado;
             nuevoExpediente.UsuarioCreacion = usuarioCreacionId;
+            nuevoExpediente.OficinaId = esMesaDePartes!.Id;
 
             int totalExpedientes = await _expedienteRepository.ContarExpedientesPorUsuario();
             int numeroSiguiente = totalExpedientes + 1;

@@ -27,6 +27,10 @@ namespace ProcessingSystem.Application.Services
 
             if (usuarioNegocio != null)
             {
+                if (!usuarioNegocio.EstaEliminado)
+                {
+                    throw new Exception($"El usuario se encuentra inactivo. No puede {accionMensaje}.");
+                }
                 auditUserId = usuarioNegocio.Id.ToString();
             }
             else
@@ -42,7 +46,15 @@ namespace ProcessingSystem.Application.Services
 
                 if (usuarioNegocio == null)
                 {
-                    throw new Exception($"para {accionMensaje}, el ciudadano debe estar activo");
+                    usuarioNegocio = new Usuarios
+                    {
+                        Id = usuarioIdentity.Id,
+                        Nombre = usuarioIdentity.UserName?.Split('@')[0] ?? "Admin", 
+                        Apellidos = "Sistema",
+                    };
+                } else if (!usuarioNegocio.EstaEliminado)
+                {
+                    throw new Exception($"El perfil de usuario existe pero no se encuentra activo para {accionMensaje}.");
                 }
             }
             return (usuarioNegocio, auditUserId);

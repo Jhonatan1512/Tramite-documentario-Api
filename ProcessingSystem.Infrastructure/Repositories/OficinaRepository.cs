@@ -18,6 +18,13 @@ namespace ProcessingSystem.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public async Task ActualizarOficina(Oficina oficina)
+        {
+            _context.Oficinas.Update(oficina);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<Oficina> CrearOficinaAsync(Oficina oficina)
         {
             await _context.Oficinas.AddAsync(oficina);
@@ -33,6 +40,11 @@ namespace ProcessingSystem.Infrastructure.Repositories
         public async Task<Oficina?> GetByIdAsync(Guid id)
         {
             return await _context.Oficinas.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<Oficina?> ObtenerMesaDePartesAsync()
+        {
+            return await _context.Oficinas.FirstOrDefaultAsync(o => o.EsMesaPartes);
         }
     }
 }

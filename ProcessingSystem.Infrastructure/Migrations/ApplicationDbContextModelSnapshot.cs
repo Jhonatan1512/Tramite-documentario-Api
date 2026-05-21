@@ -117,15 +117,15 @@ namespace ProcessingSystem.Infrastructure.Migrations
                         {
                             Id = new Guid("f22687c4-279e-473d-829d-476775988e40"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4f8633d6-a86b-4f58-8c24-9e366b85118e",
+                            ConcurrencyStamp = "b522abd8-0d83-4e04-8c9a-c15799193c0f",
                             Email = "admin@ejemplo.gob.pe",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EJEMPLO.GOB.PE",
                             NormalizedUserName = "ADMIN@EJEMPLO.GOB.PE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIbY+VF75OM2hJUOE8jIK0hkCzC17sdmmTFjnZRHJ/i1zGdvMiV6ioZTZj4Ie24mwg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL/tTUSuW+dKWcT2J67uVK8HvUcTUwLTJ6ENmsQU/to5w5RS6qyFinPDiQWdF0//fA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "93637478-5eb6-482c-8420-9dbeed3ebadb",
+                            SecurityStamp = "f145c25f-c9cb-4c37-a960-43cd11598651",
                             TwoFactorEnabled = false,
                             UserName = "admin@ejemplo.gob.pe"
                         });
@@ -291,6 +291,9 @@ namespace ProcessingSystem.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<Guid>("OficinaId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("TipoDocumentoId")
                         .HasColumnType("uniqueidentifier");
 
@@ -307,6 +310,8 @@ namespace ProcessingSystem.Infrastructure.Migrations
 
                     b.HasIndex("NumeroExpediente")
                         .IsUnique();
+
+                    b.HasIndex("OficinaId");
 
                     b.HasIndex("TipoDocumentoId");
 
@@ -383,6 +388,9 @@ namespace ProcessingSystem.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
 
+                    b.Property<bool>("EsMesaPartes")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("EstaEliminado")
                         .HasColumnType("bit");
 
@@ -399,10 +407,6 @@ namespace ProcessingSystem.Infrastructure.Migrations
                     b.Property<Guid?>("OficinaPadreId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Siglas")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("UsuarioCreacion")
                         .HasColumnType("nvarchar(max)");
 
@@ -414,6 +418,18 @@ namespace ProcessingSystem.Infrastructure.Migrations
                     b.HasIndex("OficinaPadreId");
 
                     b.ToTable("Oficinas");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("00f0dbb0-99a9-4a8e-bdeb-c46bf13bf627"),
+                            EsMesaPartes = true,
+                            EstaEliminado = false,
+                            FechaCreacion = new DateTime(2026, 5, 21, 18, 26, 54, 323, DateTimeKind.Local).AddTicks(2696),
+                            FechaModificacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Nombre = "Mesa de Partes",
+                            UsuarioCreacion = "f22687c4-279e-473d-829d-476775988e40"
+                        });
                 });
 
             modelBuilder.Entity("ProcessingSystem.Domain.Entities.Rol", b =>
@@ -614,6 +630,12 @@ namespace ProcessingSystem.Infrastructure.Migrations
 
             modelBuilder.Entity("ProcessingSystem.Domain.Entities.Expediente", b =>
                 {
+                    b.HasOne("ProcessingSystem.Domain.Entities.Oficina", "Oficina")
+                        .WithMany()
+                        .HasForeignKey("OficinaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ProcessingSystem.Domain.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany()
                         .HasForeignKey("TipoDocumentoId")
@@ -625,6 +647,8 @@ namespace ProcessingSystem.Infrastructure.Migrations
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Oficina");
 
                     b.Navigation("TipoDocumento");
 

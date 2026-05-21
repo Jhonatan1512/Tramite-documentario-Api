@@ -35,6 +35,9 @@ builder.Services.AddScoped<ITipoDocumentoService, TipoDocumentoService>();
 builder.Services.AddScoped<IExpedienteRepository, ExpedienteRepository>();
 builder.Services.AddScoped<IExpedienteService, ExpedienteService>();
 builder.Services.AddScoped<IUsuarioContextService, UsuarioContexService>();
+builder.Services.AddScoped<IDocumentoArchivoRepository, DocumentoArchivoRepository>();
+builder.Services.AddScoped<IDocumentoArchivoService, DocumentoArchivoService>();
+builder.Services.AddScoped<IArchivoStorageService, ArchivoStorageService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -91,7 +94,11 @@ builder.Services.AddScoped<IMapper, ServiceMapper>();
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add<ValidationFilter>();
-});
+})
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options.SuppressModelStateInvalidFilter = true;
+    });
 
 builder.Services.AddValidatorsFromAssemblyContaining<ExpedienteDtoValidator>();
 

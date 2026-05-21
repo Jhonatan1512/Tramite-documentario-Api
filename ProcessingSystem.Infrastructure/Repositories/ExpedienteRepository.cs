@@ -50,6 +50,7 @@ namespace ProcessingSystem.Infrastructure.Repositories
         public async Task<IEnumerable<Expediente>> ObtenerTodoslosExpedientesAsync(Guid usuarioId)
         {
             return await _context.Expedientes
+                .Include(e => e.Archivos)
                 .Include(e => e.TipoDocumento)
                 .Where(e => e.UsuarioCreacion == usuarioId.ToString())
                 .ToListAsync();

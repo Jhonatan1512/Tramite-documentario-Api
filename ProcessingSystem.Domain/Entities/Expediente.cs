@@ -15,6 +15,8 @@ namespace ProcessingSystem.Domain.Entities
         public Guid TipoDocumentoId { get; set; }
         public virtual TipoDocumento? TipoDocumento { get; set; }
         public EstadoExpediente? Estado {  get; set; }
+        public Guid OficinaId { get; set; }
+        public virtual Oficina? Oficina { get; set; }
         public virtual ICollection<DocumentoArchivo> Archivos { get; set; } = [];
         public virtual ICollection<Movimiento> Historial { get; set; } = [];
     }

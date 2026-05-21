@@ -25,4 +25,8 @@
     <ProjectReference Include="..\ProcessingSystem.Infrastructure\ProcessingSystem.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Uploads\" />
+  </ItemGroup>
+
 </Project>

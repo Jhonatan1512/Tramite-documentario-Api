@@ -12,5 +12,7 @@ namespace ProcessingSystem.Domain.Interfaces
         Task<Oficina> CrearOficinaAsync(Oficina oficina);
         Task<IEnumerable<Oficina>> GetAllAsync();
         Task<Oficina?> GetByIdAsync(Guid id);
+        Task ActualizarOficina(Oficina oficina);
+        Task<Oficina?> ObtenerMesaDePartesAsync();
     }
 }

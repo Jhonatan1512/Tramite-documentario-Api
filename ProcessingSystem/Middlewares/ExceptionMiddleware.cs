@@ -31,7 +31,7 @@ namespace ProcessingSystem.Api.Middlewares
                     else if (context.Response.StatusCode == StatusCodes.Status403Forbidden)
                     {
                         await WriteCustomJsonErrorAsync(context, HttpStatusCode.Forbidden, 
-                            "Acceso denegado. No tienes el rol necesario (Ciudadano) para acceder a este endpoint.");
+                            "Acceso denegado. No tienes el rol necesario para acceder a este endpoint.");
                     }
                 }
             }

@@ -1,0 +1,15 @@
+﻿using Microsoft.AspNetCore.Http;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProcessingSystem.Application.Interfaces
+{
+    public interface IArchivoStorageService
+    {
+        Task<string> GuardarArchivoAsync(IFormFile archivo);
+        Task EliminarArchivo(string urlArchivo);
+    }
+}

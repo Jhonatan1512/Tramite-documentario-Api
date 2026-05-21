@@ -10,6 +10,7 @@ namespace ProcessingSystem.Application.Interfaces
 {
     public interface IOficinaService
     {
-        Task<OficinaDto> CrearOficinaAsync(OficinaDto dto);
+        Task<OficinaDto> CrearOficinaAsync(Guid usuarioId, OficinaDto dto);
+        Task ActualizarOficinaAsync(Guid usuarioId, Guid oficinaId, OficinaDto dto); 
     }
 }

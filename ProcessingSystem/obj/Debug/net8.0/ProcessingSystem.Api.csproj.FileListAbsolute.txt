@@ -154,3 +154,6 @@ D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\obj\Debug\net8.0\ProcessingSystem.Api.sourcelink.json
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\FluentValidation.dll
 D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\bin\Debug\net8.0\ProcessingSystem.Api.staticwebassets.runtime.json

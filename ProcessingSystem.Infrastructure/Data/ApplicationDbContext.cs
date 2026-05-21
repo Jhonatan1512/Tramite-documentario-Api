@@ -47,10 +47,16 @@ namespace ProcessingSystem.Infrastructure.Data
                 SecurityStamp = Guid.NewGuid().ToString()
             };
 
+            var newOficina = new Oficina
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Mesa de Partes",
+                EsMesaPartes = true,
+                UsuarioCreacion = ADMIN_ID.ToString()
+            };
+
             var passwordHasher = new PasswordHasher<IdentityUser<Guid>>();
             adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, "Admin123*");
-
-            //builder.Entity<Usuarios>().HasData(adminUser);
 
             builder.Entity<IdentityUserRole<Guid>>().HasData(
                 new IdentityUserRole<Guid>
@@ -70,6 +76,7 @@ namespace ProcessingSystem.Infrastructure.Data
             }
 
             builder.Entity<IdentityUser<Guid>>().HasData(adminUser);
+            builder.Entity<Oficina>().HasData(newOficina);
 
             builder.Entity<Movimiento>(entity =>
             {

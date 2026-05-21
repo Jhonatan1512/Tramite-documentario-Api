@@ -4,11 +4,6 @@ using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Services
 {
@@ -16,18 +11,35 @@ namespace ProcessingSystem.Application.Services
     {
         private readonly IOficinaRepository _oficinaRepository;
         private readonly IMapper _mapper;
+        private readonly IUsuarioContextService _usuarioContextService;
 
-        public OficinaService(IOficinaRepository oficinaRepository, IMapper mapper)
+        public OficinaService(IOficinaRepository oficinaRepository, IMapper mapper, IUsuarioContextService usuarioContextService)
         {
             _oficinaRepository = oficinaRepository;
             _mapper = mapper;
+            _usuarioContextService = usuarioContextService;
         }
-        public async Task<OficinaDto> CrearOficinaAsync(OficinaDto dto)
+
+        public async Task ActualizarOficinaAsync(Guid usuarioId, Guid oficinaId, OficinaDto dto)
         {
-            if (string.IsNullOrWhiteSpace(dto.Nombre) || string.IsNullOrWhiteSpace(dto.Siglas))
+            var (_, usuarioModificacionId) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "actualizar datos de una oficina");
+
+            var oficinaExiste = await _oficinaRepository.GetByIdAsync(oficinaId);
+            if(oficinaExiste == null)
             {
-                throw new Exception("Todos los campos son obligatorios");
+                throw new KeyNotFoundException("Oficina no encontrada");
             }
+
+            oficinaExiste.Nombre = dto.Nombre;
+            oficinaExiste.UsuarioModificacion = usuarioModificacionId;
+            oficinaExiste.FechaModificacion = DateTime.Now;
+
+            await _oficinaRepository.ActualizarOficina(oficinaExiste);
+        }
+
+        public async Task<OficinaDto> CrearOficinaAsync(Guid usuarioId, OficinaDto dto)
+        {
+            var (_, usuarioCreacionId) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "crear una oficina");
 
             if (dto.OficinaPadreId.HasValue)
             {
@@ -37,7 +49,9 @@ namespace ProcessingSystem.Application.Services
                     throw new Exception("La oficina superior especificada no existe");
                 }
             }
+
             var nuevaOficina = dto.Adapt<Oficina>();
+            nuevaOficina.UsuarioCreacion = usuarioCreacionId;
 
             var result = await _oficinaRepository.CrearOficinaAsync(nuevaOficina);
 
