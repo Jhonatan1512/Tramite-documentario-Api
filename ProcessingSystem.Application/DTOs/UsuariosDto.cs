@@ -34,6 +34,5 @@ namespace ProcessingSystem.Application.DTOs
         public string Apellidos { get; set; } = string.Empty;
         public string Dni { get; set; } = string.Empty;
         public DateTime FechaModificacion {  get; set; } = DateTime.Now;
-        public string? UsuarioModificacion {  get; set; } = string.Empty;
     }
 }

@@ -30,7 +30,7 @@ namespace ProcessingSystem.Application.Services
             var usuario = await _usuarioRepository.ObtenerPorId(id);
             if (usuario == null)
             {
-                throw new Exception("El usuario no existe");
+                throw new KeyNotFoundException("El usuario no existe");
             }
 
             if(usuario.Dni != dto.Dni)
@@ -38,14 +38,10 @@ namespace ProcessingSystem.Application.Services
                 var dniExiste = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
                 if(dniExiste != null)
                 {
-                    throw new Exception("El dni ya esta registrado en la BD");
+                    throw new InvalidOperationException("El dni ya esta registrado en la BD");
                 }
             }
-
-            usuario.Nombre = dto.Nombre;
-            usuario.Apellidos = dto.Apellidos;
-            usuario.Dni = dto.Dni;
-            usuario.FechaModificacion = dto.FechaModificacion;
+            dto.Adapt(usuario);
             usuario.UsuarioModificacion = usuario.Id.ToString();
 
             await _usuarioRepository.ActualizarUsuarioAsync(usuario);            
@@ -56,7 +52,7 @@ namespace ProcessingSystem.Application.Services
             var existeDni = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
             if (existeDni != null)
             {
-                throw new Exception("El DNI que esta intentando registrar ya existe en la BD");                
+                throw new InvalidOperationException("El DNI que esta intentando registrar ya existe en la BD");                
             }
 
             var existeEmail = await _userManager.FindByEmailAsync(dto.Email);
@@ -76,7 +72,7 @@ namespace ProcessingSystem.Application.Services
             if(!identityResult.Succeeded)
             {
                 var errores = string.Join(", ", identityResult.Errors.Select(e => e.Description));
-                throw new Exception(errores);
+                throw new InvalidOperationException(errores);
             }
 
             const string rolCiudadano = "Ciudadano";

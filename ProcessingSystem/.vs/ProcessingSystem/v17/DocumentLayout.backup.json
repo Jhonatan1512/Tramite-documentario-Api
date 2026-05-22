@@ -3,7 +3,20 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\oficinaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\oficinadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|d:\\document-processing-system\\processing-system\\processingsystem\\controllers\\oficinascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6400915B-6FF7-4560-B467-9E9A644D287F}|ProcessingSystem.Api.csproj|solutionrelative:controllers\\oficinascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}|..\\ProcessingSystem.Infrastructure\\ProcessingSystem.Infrastructure.csproj|d:\\document-processing-system\\processing-system\\processingsystem.infrastructure\\repositories\\oficinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\interfaces\\ioficinaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,19 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwFAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "OficinasController.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\OficinasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OficinasController.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\Controllers\\OficinasController.cs",
+              "RelativeToolTip": "Controllers\\OficinasController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T23:42:48.861Z",
+              "WhenOpened": "2026-05-22T21:37:20.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OficinaDto.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\OficinaDto.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\OficinaDto.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\OficinaDto.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\OficinaDto.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T21:25:37.477Z",
               "EditorCaption": ""
             },
             {
@@ -35,6 +61,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OficinaService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\OficinaService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\OficinaService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\OficinaService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\OficinaService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T21:24:00.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IOficinaService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IOficinaService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Interfaces\\IOficinaService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Interfaces\\IOficinaService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Interfaces\\IOficinaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T21:23:57.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OficinaRepository.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\OficinaRepository.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Infrastructure\\Repositories\\OficinaRepository.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Infrastructure\\Repositories\\OficinaRepository.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Infrastructure\\Repositories\\OficinaRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwCUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T21:23:40.973Z",
+              "EditorCaption": ""
             }
           ]
         }

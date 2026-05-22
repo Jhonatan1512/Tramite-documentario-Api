@@ -299,21 +299,33 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/OficinaDto"
+                "$ref": "#/components/schemas/ActualizarOficinaDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/OficinaDto"
+                "$ref": "#/components/schemas/ActualizarOficinaDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/OficinaDto"
+                "$ref": "#/components/schemas/ActualizarOficinaDto"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Oficinas/listado-oficinas": {
+      "get": {
+        "tags": [
+          "Oficinas"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -341,6 +353,102 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/PersonalDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Personal/actualizar-datos/{id}": {
+      "put": {
+        "tags": [
+          "Personal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPersonalDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPersonalDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarPersonalDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Personal/listado-personal": {
+      "get": {
+        "tags": [
+          "Personal"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Personal/eliminar-usuario/{id}": {
+      "put": {
+        "tags": [
+          "Personal"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DesactivarActivarPersonalDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DesactivarActivarPersonalDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DesactivarActivarPersonalDto"
               }
             }
           }
@@ -514,6 +622,43 @@
   },
   "components": {
     "schemas": {
+      "ActualizarOficinaDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaModificacion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ActualizarPersonalDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "dni": {
+            "type": "string",
+            "nullable": true
+          },
+          "oficinaId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ActualizarTipoDocumentoDto": {
         "type": "object",
         "properties": {
@@ -550,10 +695,15 @@
           "fechaModificacion": {
             "type": "string",
             "format": "date-time"
-          },
-          "usuarioModificacion": {
-            "type": "string",
-            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DesactivarActivarPersonalDto": {
+        "type": "object",
+        "properties": {
+          "estaEliminado": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -615,10 +765,6 @@
           "dni": {
             "type": "string",
             "nullable": true
-          },
-          "userId": {
-            "type": "string",
-            "format": "uuid"
           },
           "oficinaId": {
             "type": "string",

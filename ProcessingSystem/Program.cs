@@ -38,6 +38,7 @@ builder.Services.AddScoped<IUsuarioContextService, UsuarioContexService>();
 builder.Services.AddScoped<IDocumentoArchivoRepository, DocumentoArchivoRepository>();
 builder.Services.AddScoped<IDocumentoArchivoService, DocumentoArchivoService>();
 builder.Services.AddScoped<IArchivoStorageService, ArchivoStorageService>();
+builder.Services.AddScoped<ICredencialesPersonalService, CredencialesPersonalService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

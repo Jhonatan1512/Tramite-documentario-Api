@@ -34,7 +34,9 @@ namespace ProcessingSystem.Infrastructure.Repositories
 
         public async Task<IEnumerable<Oficina>> GetAllAsync()
         {
-            return await _context.Oficinas.ToListAsync();
+            return await _context.Oficinas
+                .Include(o => o.Trabajadores)
+                .ToListAsync();
         }
 
         public async Task<Oficina?> GetByIdAsync(Guid id)

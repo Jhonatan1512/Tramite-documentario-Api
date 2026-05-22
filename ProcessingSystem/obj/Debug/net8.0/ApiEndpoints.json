@@ -167,10 +167,20 @@
       },
       {
         "Name": "dto",
-        "Type": "ProcessingSystem.Application.DTOs.OficinaDto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarOficinaDto",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
+    "Method": "ObtenerOficinas",
+    "RelativePath": "api/Oficinas/listado-oficinas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -187,6 +197,58 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.PersonalController",
+    "Method": "ActualizarDatos",
+    "RelativePath": "api/Personal/actualizar-datos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarPersonalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.PersonalController",
+    "Method": "EliminarUsuario",
+    "RelativePath": "api/Personal/eliminar-usuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.DesactivarActivarPersonalDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.PersonalController",
+    "Method": "ObetenerTodos",
+    "RelativePath": "api/Personal/listado-personal",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

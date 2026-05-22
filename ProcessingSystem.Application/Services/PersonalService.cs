@@ -1,14 +1,10 @@
 ﻿using Mapster;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Services
 {
@@ -18,45 +14,22 @@ namespace ProcessingSystem.Application.Services
         private readonly UserManager<IdentityUser<Guid>> _userManager;
         private readonly RoleManager<Rol> _roleManager;
         private readonly IOficinaRepository _oficinaRepository;
+        private readonly ICredencialesPersonalService _credencialesPersonal;
 
-        public PersonalService(IPersonalRepository personalRepository, UserManager<IdentityUser<Guid>> userManager, RoleManager<Rol> roleManager, IOficinaRepository oficinaRepository)
+        public PersonalService(IPersonalRepository personalRepository, UserManager<IdentityUser<Guid>> userManager, 
+            RoleManager<Rol> roleManager, IOficinaRepository oficinaRepository, ICredencialesPersonalService credencialesPersonal)
         {
             _personalRepository = personalRepository;
             _userManager = userManager;
             _roleManager = roleManager;
             _oficinaRepository = oficinaRepository;
+            _credencialesPersonal = credencialesPersonal;
         }
-        public async Task<GetPersonalDto> CrearPersonalAsync(PersonalDto dto)
+        public async Task<GetPersonalDto> CrearPersonalAsync(Guid usuarioCreacionId, PersonalDto dto)
         {
-            if(string.IsNullOrWhiteSpace(dto.Nombre) || string.IsNullOrWhiteSpace(dto.Apellidos) || string.IsNullOrWhiteSpace(dto.Dni) || 
-                string.IsNullOrWhiteSpace(dto.UserId.ToString()) || string.IsNullOrWhiteSpace(dto.OficinaId.ToString()))
-            {
-                throw new Exception("Todos los campos son obligatorios");
-            }
-
-            if (dto.OficinaId.HasValue)
-            {
-                var oficinaExiste = await _oficinaRepository.GetByIdAsync(dto.OficinaId.Value);
-                if(oficinaExiste == null)
-                {
-                    throw new Exception("La oficina especificada no existe");
-                }
-            }
-
-            var dniExiste = await _personalRepository.ObtenerPorDni(dto.Dni);
-            if (dniExiste != null)
-            {
-                throw new Exception("El DNI que esta intentando registrar ya existe en la BD");
-            }
-
-            var partesApellidos = dto.Apellidos.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
-            char inicial1 = partesApellidos.Length > 0 ? partesApellidos[0][0] : 'X';
-            char inicial2 = partesApellidos.Length > 1 ? partesApellidos[1][0] : inicial1;
-
-            string emailGenerado = $"{char.ToLower(inicial1)}{char.ToLower(inicial2)}{dto.Dni}@ejemplo.gob.pe";
-            var passwordgenerada = $"{char.ToUpper(inicial1)}{char.ToLower(inicial2)}{dto.Dni}*";
-
+            await ValidarOficinaDniAsync(dto.OficinaId, dto.Dni);
+            
+            var (emailGenerado, passwordGenerada) = _credencialesPersonal.GenerarParaPersonal(dto.Apellidos, dto.Dni);
             var newUser = new IdentityUser<Guid>
             {
                 UserName = emailGenerado,
@@ -64,31 +37,135 @@ namespace ProcessingSystem.Application.Services
                 EmailConfirmed = true,
             };
 
-            var identityResult = await _userManager.CreateAsync(newUser, passwordgenerada);
+            var identityResult = await _userManager.CreateAsync(newUser, passwordGenerada);
             if(!identityResult.Succeeded)
             {
                 var errores = string.Join(", ", identityResult.Errors.Select(e => e.Description));
-                throw new Exception(errores);
+                throw new InvalidOperationException(errores);
             }
 
+            try
+            {
+                await SincronizarRolPerosnlaAsync(newUser);
+
+                var nuevoPersonal = dto.Adapt<Usuarios>();
+                nuevoPersonal.UserId = newUser.Id;
+                nuevoPersonal.UsuarioCreacion = usuarioCreacionId.ToString();
+                await _personalRepository.CrearPersonalAsync(nuevoPersonal);
+
+                var result = nuevoPersonal.Adapt<GetPersonalDto>();
+                
+                result.Email = newUser.Email;
+                return result;
+
+            } catch (Exception)
+            {
+                await _userManager.DeleteAsync(newUser);
+                throw;
+            }
+        }
+
+        public async Task ActualizarPersonalAsync(Guid personalId, Guid usuarioId, ActualizarPersonalDto dto)
+        {
+            var personalExiste = await _personalRepository.GetByIdAsync(personalId);
+            if(personalExiste == null)
+            {
+                throw new KeyNotFoundException("El ID del usuario no existe");
+            }
+
+            if (personalExiste.Dni != dto.Dni)
+            {
+                await ValidarOficinaDniAsync(dto.OficinaId, dto.Dni);
+            } else if (dto.OficinaId.HasValue)
+            {
+                await ValidarOficinaDniAsync(dto.OficinaId, null!);
+            }
+
+            if(personalExiste.Apellidos != dto.Apellidos || personalExiste.Dni != dto.Dni)
+            {
+                await _credencialesPersonal.ActualizarCredenciales(personalExiste.UserId!.Value, dto.Apellidos, dto.Dni);
+            }
+
+            dto.Adapt(personalExiste);
+            personalExiste.FechaModificacion = DateTime.Now;
+            personalExiste.UsuarioModificacion = usuarioId.ToString();
+
+            await _personalRepository.ActualizarDatosPersonalAsync(personalExiste);
+        }
+
+        public async Task<IEnumerable<GetPersonalDto>> ObtenerTodosAsync()
+        {
+            var personalDto = await _personalRepository.GetAll();            
+            var result = personalDto.Adapt<List<GetPersonalDto>>();
+
+            if(!result.Any()) return result;
+
+            var userIds = personalDto.Where(p => p.UserId.HasValue).Select(p => p.UserId!.Value).Distinct().ToList();
+            var listaEmails = await _userManager.Users.Where(u => userIds.Contains(u.Id)).Select(u => new {u.Id, u.Email}).ToListAsync();
+
+            var emailDictionary = listaEmails.ToDictionary(u => u.Id, u => u.Email);
+
+            foreach (var user in result)
+            {
+                var entidadIdentity = personalDto.FirstOrDefault(p => p.Dni == user.Dni);
+                if(entidadIdentity?.UserId != null && emailDictionary.TryGetValue(entidadIdentity.UserId.Value, out var email))
+                {
+                    user.Email = email!;
+                }
+                
+                if(user.OficinaId != Guid.Empty)
+                {
+                    var oficinaDb = await _oficinaRepository.GetByIdAsync(user.OficinaId);
+                    user.OficinaId = oficinaDb!.Id;
+                    user.NombreOficina = oficinaDb != null ? oficinaDb.Nombre : "Sin Oficina";
+                } else
+                {
+                    user.NombreOficina = "Sin oficina";
+                }
+            }
+            return result;
+        }
+
+        public async Task<string> EliminarUsuario(Guid personalId, Guid usuarioId, DesactivarActivarPersonalDto dto)
+        {
+            var personalExiste = await _personalRepository.GetByIdAsync(personalId);
+            if(personalExiste == null)
+            {
+                throw new KeyNotFoundException("El id del usuario no existe");
+            }
+
+            dto.Adapt(personalExiste);
+            personalExiste!.FechaModificacion = DateTime.Now;
+            personalExiste!.UsuarioModificacion = usuarioId.ToString();
+
+            await _personalRepository.ActualizarDatosPersonalAsync(personalExiste);
+
+            return personalExiste.EstaEliminado
+                ? "El usuario ha sido descativado"
+                : "El usuario ha sido activado";
+        }
+
+        private async Task ValidarOficinaDniAsync(Guid? oficinaId, string dni)
+        {
+            if (oficinaId.HasValue && await _oficinaRepository.GetByIdAsync(oficinaId.Value) == null)
+            {
+                throw new KeyNotFoundException("La oficina especificada no existe en el sistema");
+            }
+
+            if (await _personalRepository.ObtenerPorDni(dni) != null)
+            {
+                throw new InvalidOperationException("El DNI que esta intentando registra ya existe en la BD");
+            }
+        }
+
+        private async Task SincronizarRolPerosnlaAsync(IdentityUser<Guid> user)
+        {
             const string rolPersonal = "Personal";
             if (!await _roleManager.RoleExistsAsync(rolPersonal))
             {
                 await _roleManager.CreateAsync(new Rol { Name = rolPersonal, NormalizedName = "PERSONAL" });
             }
-
-            await _userManager.AddToRoleAsync(newUser, rolPersonal);
-
-            var nuevoPersonal = dto.Adapt<Usuarios>();
-
-            nuevoPersonal.UserId = newUser.Id;
-
-            await _personalRepository.CrearPersonalAsync(nuevoPersonal);
-
-            var result = nuevoPersonal.Adapt<GetPersonalDto>();
-            result.Email = newUser.Email;
-
-            return result;
+            await _userManager.AddToRoleAsync(user, rolPersonal);
         }
     }
 }

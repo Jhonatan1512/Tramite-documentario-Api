@@ -11,5 +11,8 @@ namespace ProcessingSystem.Domain.Interfaces
     {
         Task<Usuarios> CrearPersonalAsync(Usuarios usuarios);
         Task<Usuarios?> ObtenerPorDni(string dni);
+        Task ActualizarDatosPersonalAsync(Usuarios usuarios);   
+        Task<Usuarios?> GetByIdAsync(Guid id);
+        Task<IEnumerable<Usuarios>> GetAll();
     }
 }

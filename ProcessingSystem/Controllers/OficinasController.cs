@@ -28,10 +28,17 @@ namespace ProcessingSystem.Api.Controllers
 
         [HttpPut("actualizar/{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult> ActualizarOficina(Guid id, OficinaDto dto)
+        public async Task<ActionResult> ActualizarOficina(Guid id, ActualizarOficinaDto dto)
         {
             await _oficinaService.ActualizarOficinaAsync(UsuarioId, id, dto);
             return Ok(new { mensaje = "Datos de la oficina actualizados"});
+        }
+
+        [HttpGet("listado-oficinas")]
+        public async Task<ActionResult> ObtenerOficinas()
+        {
+            var result = await _oficinaService.GetOficinasAsync();
+            return Ok(result);
         }
 
         private Guid UsuarioId 
