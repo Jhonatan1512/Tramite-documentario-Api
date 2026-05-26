@@ -43,6 +43,7 @@ builder.Services.AddScoped<IIdentityCiudadanoiService, IdentityCiudadanoService>
 builder.Services.AddScoped<ICredencialesCiudadanosService, CredencialesCiudadanoService>();
 builder.Services.AddScoped<IMovimientoRepository, MovimientoRepository>();
 builder.Services.AddScoped<IMovimientoService, MovimientoService>();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserservice>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

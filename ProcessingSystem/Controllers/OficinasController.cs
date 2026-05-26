@@ -12,10 +12,12 @@ namespace ProcessingSystem.Api.Controllers
     public class OficinasController : ControllerBase
     {
         private readonly IOficinaService _oficinaService;
+        private readonly ICurrentUserService _currentUser;
 
-        public OficinasController(IOficinaService oficinaService)
+        public OficinasController(IOficinaService oficinaService, ICurrentUserService currentUser)
         {
             _oficinaService = oficinaService;
+            _currentUser = currentUser;
         }
 
         [HttpPost]
@@ -41,17 +43,7 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(result);
         }
 
-        private Guid UsuarioId 
-        {
-            get
-            {
-                var claimId = User.FindFirst("id")?.Value ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (string.IsNullOrWhiteSpace(claimId) || !Guid.TryParse(claimId, out var parserGuid))
-                {
-                    throw new UnauthorizedAccessException("El usuario no esta autenticado o el token es invalido");
-                }
-                return parserGuid;
-            }
-        }
+        private Guid UsuarioId => _currentUser.GetUserId();
+
     }
 }

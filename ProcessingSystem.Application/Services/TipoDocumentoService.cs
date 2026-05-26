@@ -17,32 +17,20 @@ namespace ProcessingSystem.Application.Services
         private readonly ITipoDocumentoRepository _tipoDocumentoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly IUsuarioContextService _usuarioContext;
 
-        public TipoDocumentoService(ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioRepository usuarioRepository, UserManager<IdentityUser<Guid>> userManager)
+        public TipoDocumentoService(ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioRepository usuarioRepository, 
+            UserManager<IdentityUser<Guid>> userManager, IUsuarioContextService usuarioContext)
         {
             _tipoDocumentoRepository = tipoDocumentoRepository;
             _usuarioRepository = usuarioRepository;
             _userManager = userManager;
+            _usuarioContext = usuarioContext;
         }
 
         public async Task ActuslizarTipoDocumentoAsync(Guid id, Guid usuarioId, ActualizarTipoDocumentoDto dto)
         {
-            var usuario = await _usuarioRepository.ObtenerPorId(usuarioId);
-
-            string usuarioModificacionId;
-            if(usuario != null)
-            {
-                usuarioModificacionId = usuario.Id.ToString();
-            } else
-            {
-                var userIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
-                if(userIdentity == null)
-                {
-                    throw new Exception("El usuario no existe en el sistema");
-                } 
-
-                usuarioModificacionId = userIdentity.Id.ToString();
-            }
+            var (_, usuarioModificacionId) = await _usuarioContext.ObtenerYValidarUsuarioAsync(usuarioId, "no puede modificar un tipo de documento");
 
             var registroExiste = await _tipoDocumentoRepository.GetTipodocumntoByIdAsync(id);
             if(registroExiste == null)
@@ -60,21 +48,7 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<GetTipoDocumentoDto> CrearTipoDocumentoAsync(Guid usuarioId, TipoDocumentoDto dto)
         {
-            var usuario = await _usuarioRepository.ObtenerPorId(usuarioId);
-
-            string usuarioCreacionId;
-            if (usuario != null)
-            {
-                usuarioCreacionId = usuario.Id.ToString();
-            } else
-            {
-                var usuarioIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
-                if(usuarioIdentity == null)
-                {
-                    throw new Exception("El usuario no existe en el sistema");
-                }
-                usuarioCreacionId = usuarioIdentity.Id.ToString();
-            }
+            var (_, usuarioCreacionId) = await _usuarioContext.ObtenerYValidarUsuarioAsync(usuarioId, "crear un tipo de documento");
 
             var nuevoTipoDocumento = dto.Adapt<TipoDocumento>();
             nuevoTipoDocumento.UsuarioCreacion = usuarioCreacionId;
@@ -86,32 +60,15 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<IEnumerable<GetTipoDocumentoDto>> ObtenerTodosAsync()
         {
-            var datosDto = await _tipoDocumentoRepository.GetAllTiposDocumentoAsync();
             
+            var datosDto = await _tipoDocumentoRepository.GetAllTiposDocumentoAsync();            
             var result = datosDto.Adapt<List<GetTipoDocumentoDto>>();
 
             foreach (var dto in result)
             {
-                if(!string.IsNullOrWhiteSpace(dto.UsuarioCreacion) && Guid.TryParse(dto.UsuarioCreacion, out var userId))
-                {
-                    var usuarioDb = await _usuarioRepository.ObtenerPorId(userId);
-                    if(usuarioDb != null)
-                    {
-                        dto.NombreUsuarioCreacion = $"{usuarioDb.Nombre} {usuarioDb.Apellidos}";
-                        continue;
-                    }
-
-                    var usuarioIdentity = await _userManager.FindByIdAsync(dto.UsuarioCreacion);
-                    if( usuarioIdentity != null)
-                    {
-                        dto.NombreUsuarioCreacion = "Administrador del Distema";
-                    } else
-                    {
-                        dto.NombreUsuarioCreacion = "Usuario Desconocido";
-                    }
-                }
+                var (usuarioCreacion, _) = await _usuarioContext.ObtenerYValidarUsuarioAsync(Guid.Parse(dto.UsuarioCreacion), "ver la lista");
+                dto.NombreUsuarioCreacion = "Administrador del Distema";
             }
-
             return result;
         }
     }

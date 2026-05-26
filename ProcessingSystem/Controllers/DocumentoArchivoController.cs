@@ -13,10 +13,12 @@ namespace ProcessingSystem.Api.Controllers
     public class DocumentoArchivoController : ControllerBase
     {
         private readonly IDocumentoArchivoService _documentoArchivoService;
+        private readonly ICurrentUserService _currentUser;
 
-        public DocumentoArchivoController(IDocumentoArchivoService documentoArchivoService)
+        public DocumentoArchivoController(IDocumentoArchivoService documentoArchivoService, ICurrentUserService currentUser)
         {
             _documentoArchivoService = documentoArchivoService;
+            _currentUser = currentUser;
         }
 
         [HttpPost]
@@ -43,18 +45,6 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(new { mensaje = "Archivo actualizado"});
         }
 
-        private Guid UsuarioId
-        {
-            get
-            {
-                var claimId = User.FindFirst("id")?.Value ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (string.IsNullOrWhiteSpace(claimId) || !Guid.TryParse(claimId, out var parserGuid))
-                {
-                    throw new UnauthorizedAccessException("El usuario no esta autenticado o el token es invalido");
-                }
-                return parserGuid;
-            }
-
-        }
+        private Guid UsuarioId => _currentUser.GetUserId();
     }
 }

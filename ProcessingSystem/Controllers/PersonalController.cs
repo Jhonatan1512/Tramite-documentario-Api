@@ -13,12 +13,12 @@ namespace ProcessingSystem.Api.Controllers
     public class PersonalController : ControllerBase
     {
         private readonly IPersonalService _personalService;
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
+        private readonly ICurrentUserService _currentUser;
 
-        public PersonalController(IPersonalService personalService, UserManager<IdentityUser<Guid>> userManager)
+        public PersonalController(IPersonalService personalService, ICurrentUserService currentUser)
         {
             _personalService = personalService;
-            _userManager = userManager;
+            _currentUser = currentUser;
         }
 
         [HttpPost]
@@ -53,17 +53,6 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(new {message = mensaje});
         }
 
-        private Guid UsuarioId
-        {
-            get
-            {
-                var usuarioClaim = User.FindFirst("id")?.Value ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (string.IsNullOrWhiteSpace(usuarioClaim) || !Guid.TryParse(usuarioClaim, out var parserGuid))
-                {
-                    throw new UnauthorizedAccessException("El usuario no esta autenticado o el token es invalido");
-                }
-                return parserGuid;
-            }
-        }
+        private Guid UsuarioId => _currentUser.GetUserId();
     }
 }

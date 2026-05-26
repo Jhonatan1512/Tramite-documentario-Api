@@ -701,6 +701,10 @@
           "fechaRecepcion": {
             "type": "string",
             "format": "date-time"
+          },
+          "comentarioFinal": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
