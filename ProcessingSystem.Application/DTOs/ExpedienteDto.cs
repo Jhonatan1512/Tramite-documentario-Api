@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProcessingSystem.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace ProcessingSystem.Application.DTOs
     public class ExpedienteDto
     {
         public string Asunto { get; set; } = string.Empty;
-        public Guid TipoDocumentoId { get; set; } 
+        public Guid TipoDocumentoId { get; set; }
     }
 
     public class GetExpedienteDto
@@ -31,7 +32,8 @@ namespace ProcessingSystem.Application.DTOs
         public Guid TipoDocumentoId { get; set; }
         public string TipoDocumentoNombre { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; }
-        public IEnumerable<ArchivoDto> Archivos { get; set; } = []; 
+        public IEnumerable<ArchivoDto> Archivos { get; set; } = [];
+        public IEnumerable<HistorialMovimientosDto> Historial { get; set; } = [];
     }
 
     public class ArchivoDto
@@ -39,5 +41,14 @@ namespace ProcessingSystem.Application.DTOs
         public Guid Id { get; set; }
         public string NombreArchivo { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; }
+    }
+
+    public class HistorialMovimientosDto
+    {
+        public string Estado { get; set; } = string.Empty;
+        public string ComentarioDerivacion { get; set; } = string.Empty;
+        public string? ComentarioFinal { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaRecepcion { get; set; }
     }
 }

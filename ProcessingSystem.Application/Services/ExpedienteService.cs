@@ -58,6 +58,19 @@ namespace ProcessingSystem.Application.Services
             int numeroSiguiente = totalExpedientes + 1;
             nuevoExpediente.NumeroExpediente = $"EXP-{DateTime.Now.Year}-{numeroSiguiente.ToString("D4")}";
 
+            var primerMovimiento = new MovimientoDto
+            {
+                OficinaOrigenId = esMesaDePartes.Id, 
+                OficinaDestinoId = esMesaDePartes.Id,
+                EmisorId = Guid.Parse(usuarioCreacionId),
+                ComentarioDerivacion = "El expediente se registro en mesa de partes",
+                Estado = EstadoMovimiento.Pendiente
+            };
+
+            var movimiento = primerMovimiento.Adapt<Movimiento>();
+            nuevoExpediente.Historial.Add(movimiento);
+            movimiento.UsuarioCreacion = usuarioCreacionId;
+
             var result = await _expedienteRepository.CrearExpedienteAsync(nuevoExpediente);
             return result.Adapt<GetExpedienteDto>();
         }
@@ -82,7 +95,7 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<IEnumerable<GetAllExpedientesDto>> GetExpedienteListAsync(Guid usuarioId)
         {
-            var (usuarioNegocio, _) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "Consultar los expedientes");
+            var (usuarioNegocio, _) = await _usuarioContextService.ObtenerYValidarUsuarioAsync(usuarioId, "consultar los expedientes");
 
             var resultDto = await _expedienteRepository.ObtenerTodoslosExpedientesAsync(usuarioNegocio.Id);
 

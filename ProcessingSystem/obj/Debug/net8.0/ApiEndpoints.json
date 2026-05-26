@@ -137,6 +137,43 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProcessingSystem.Api.Controllers.MovimientoController",
+    "Method": "ActualizarMovimiento",
+    "RelativePath": "api/Movimiento/atualizar-movimiento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarMovimientoDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.MovimientoController",
+    "Method": "RegistrarMovimiento",
+    "RelativePath": "api/Movimiento/registra-movimiento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.RegistrarMovimientoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProcessingSystem.Api.Controllers.OficinasController",
     "Method": "CrearOficina",
     "RelativePath": "api/Oficinas",

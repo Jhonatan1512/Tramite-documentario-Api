@@ -27,7 +27,7 @@ namespace ProcessingSystem.Application.Services
 
             if (usuarioNegocio != null)
             {
-                if (!usuarioNegocio.EstaEliminado)
+                if (usuarioNegocio.EstaEliminado)
                 {
                     throw new Exception($"El usuario se encuentra inactivo. No puede {accionMensaje}.");
                 }

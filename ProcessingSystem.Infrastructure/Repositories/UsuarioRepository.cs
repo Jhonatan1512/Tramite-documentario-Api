@@ -44,6 +44,21 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return await Task.FromResult<IEnumerable<Usuarios>>(data);
         }
 
+        public async Task<string> ObtenerOficinaPersonalAsync(Guid usuarioId)
+        {
+            
+            var oficinaId = await _context.Usuarios
+                .Where(u => u.UserId == usuarioId)
+                .Select(u => (Guid?)u.OficinaId)
+                .FirstOrDefaultAsync();
+
+            if(oficinaId == null)
+            {
+                throw new InvalidOperationException("Si oficina");
+            }
+            return oficinaId.Value.ToString();
+        }
+
         public async Task<Usuarios?> ObtenerPorDniAsync(string dni)
         {
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.Dni == dni);

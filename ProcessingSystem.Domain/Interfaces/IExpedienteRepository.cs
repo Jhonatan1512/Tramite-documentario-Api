@@ -15,5 +15,6 @@ namespace ProcessingSystem.Domain.Interfaces
         Task<int> ContarExpedientesPorUsuario();
         Task ActualizarExpedienteAsync(Expediente expediente);
         Task EliminarExpedienteAsync(Guid expedienteId);
+        Task ActualizarEstado(Expediente expediente);
     }
 }

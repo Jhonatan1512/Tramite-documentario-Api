@@ -248,6 +248,79 @@
         }
       }
     },
+    "/api/Movimiento/atualizar-movimiento/{id}": {
+      "put": {
+        "tags": [
+          "Movimiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarMovimientoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarMovimientoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarMovimientoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Movimiento/registra-movimiento": {
+      "post": {
+        "tags": [
+          "Movimiento"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarMovimientoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarMovimientoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrarMovimientoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Oficinas": {
       "post": {
         "tags": [
@@ -622,6 +695,16 @@
   },
   "components": {
     "schemas": {
+      "ActualizarMovimientoDto": {
+        "type": "object",
+        "properties": {
+          "fechaRecepcion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "ActualizarOficinaDto": {
         "type": "object",
         "properties": {
@@ -769,6 +852,24 @@
           "oficinaId": {
             "type": "string",
             "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegistrarMovimientoDto": {
+        "type": "object",
+        "properties": {
+          "expedienteId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "oficinaDestinoId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "comentarioDerivacion": {
+            "type": "string",
             "nullable": true
           }
         },

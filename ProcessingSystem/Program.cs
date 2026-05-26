@@ -39,6 +39,10 @@ builder.Services.AddScoped<IDocumentoArchivoRepository, DocumentoArchivoReposito
 builder.Services.AddScoped<IDocumentoArchivoService, DocumentoArchivoService>();
 builder.Services.AddScoped<IArchivoStorageService, ArchivoStorageService>();
 builder.Services.AddScoped<ICredencialesPersonalService, CredencialesPersonalService>();
+builder.Services.AddScoped<IIdentityCiudadanoiService, IdentityCiudadanoService>();
+builder.Services.AddScoped<ICredencialesCiudadanosService, CredencialesCiudadanoService>();
+builder.Services.AddScoped<IMovimientoRepository, MovimientoRepository>();
+builder.Services.AddScoped<IMovimientoService, MovimientoService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

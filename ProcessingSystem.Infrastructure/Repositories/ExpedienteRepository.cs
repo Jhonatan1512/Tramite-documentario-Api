@@ -19,6 +19,11 @@ namespace ProcessingSystem.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task ActualizarEstado(Expediente expediente)
+        {
+            await _context.SaveChangesAsync();
+        }
+
         public async Task ActualizarExpedienteAsync(Expediente expediente)
         {
             _context.Update(expediente);
@@ -52,6 +57,7 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return await _context.Expedientes
                 .Include(e => e.Archivos)
                 .Include(e => e.TipoDocumento)
+                .Include(e => e.Historial)
                 .Where(e => e.UsuarioCreacion == usuarioId.ToString())
                 .ToListAsync();
         }

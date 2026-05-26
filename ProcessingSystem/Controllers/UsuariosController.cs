@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Interfaces;
+using System.Security.Claims;
 
 namespace ProcessingSystem.Api.Controllers
 {
@@ -37,35 +38,28 @@ namespace ProcessingSystem.Api.Controllers
         [HttpPost("registrarse")]
         public async Task<ActionResult> Crear(UsuariosDto dto)
         {
-            try
-            {
-                var reult = await _usuarioService.CrearUsuarioAsync(dto);
-                return Ok(reult);
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var reult = await _usuarioService.CrearUsuarioAsync(dto);
+            return Ok(reult);
         }
 
         [HttpPut("actualizar-datos")]
         [Authorize(Roles = "Ciudadano")]
         public async Task<IActionResult> ActualizarDatos([FromBody] ActualizarUsuarioDto dto)
         {
-            try
+            await _usuarioService.ActualizarUsuarioAsync(UsuarioId, dto);
+            return Ok(new { menssage = "Datos Actualizados" });
+        }
+
+        private Guid UsuarioId
+        {
+            get
             {
-                var usuarioIdClaims = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-                if (string.IsNullOrWhiteSpace(usuarioIdClaims))
+                var usuarioClaim = User.FindFirst("id")?.Value ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrWhiteSpace(usuarioClaim) || !Guid.TryParse(usuarioClaim, out var parserGuid))
                 {
-                    return Unauthorized();
+                    throw new UnauthorizedAccessException("El usuario no esta autenticado o el token es invalido");
                 }
-
-                Guid userId = Guid.Parse(usuarioIdClaims);
-                await _usuarioService.ActualizarUsuarioAsync(userId, dto);
-                return Ok(new {menssage = "Datos Actualizados"});
-
-            } catch (Exception ex)
-            {
-                return BadRequest(new {error = ex.Message });
+                return parserGuid;
             }
         }
     }

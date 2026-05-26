@@ -15,14 +15,14 @@ namespace ProcessingSystem.Application.Services
     public class UsuarioService : IUsuarioService
     {
         private readonly IUsuarioRepository _usuarioRepository;
-        private readonly UserManager<IdentityUser<Guid>> _userManager;
-        private readonly RoleManager<Rol> _roleManager;
+        private readonly ICredencialesCiudadanosService _ciudadanosService;
+        private readonly IIdentityCiudadanoiService _identityCiudadano;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository, UserManager<IdentityUser<Guid>> userManager, RoleManager<Rol> roleManager)
+        public UsuarioService(IUsuarioRepository usuarioRepository, ICredencialesCiudadanosService ciudadanosService, IIdentityCiudadanoiService identityCiudadano)
         {
             _usuarioRepository = usuarioRepository;
-            _userManager = userManager;
-            _roleManager = roleManager;
+            _ciudadanosService = ciudadanosService;
+            _identityCiudadano = identityCiudadano;
         }
 
         public async Task ActualizarUsuarioAsync(Guid id, ActualizarUsuarioDto dto)
@@ -33,14 +33,8 @@ namespace ProcessingSystem.Application.Services
                 throw new KeyNotFoundException("El usuario no existe");
             }
 
-            if(usuario.Dni != dto.Dni)
-            {
-                var dniExiste = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
-                if(dniExiste != null)
-                {
-                    throw new InvalidOperationException("El dni ya esta registrado en la BD");
-                }
-            }
+            await _ciudadanosService.VerificarDni(usuario.Dni, dto.Dni);
+
             dto.Adapt(usuario);
             usuario.UsuarioModificacion = usuario.Id.ToString();
 
@@ -49,41 +43,13 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto)
         {
-            var existeDni = await _usuarioRepository.ObtenerPorDniAsync(dto.Dni);
-            if (existeDni != null)
-            {
-                throw new InvalidOperationException("El DNI que esta intentando registrar ya existe en la BD");                
-            }
+            await _ciudadanosService.ValidarRegistrosDuplicados(dto.Email, dto.Dni);
 
-            var existeEmail = await _userManager.FindByEmailAsync(dto.Email);
-            if(existeEmail != null)
-            {
-                throw new Exception("Ya existe un usuario con ese email");
-            }
-
-            var newUser = new IdentityUser<Guid>
-            {
-                UserName = dto.Email,
-                Email = dto.Email,
-                EmailConfirmed = true
-            };
-
-            var identityResult = await _userManager.CreateAsync(newUser, dto.Password);
-            if(!identityResult.Succeeded)
-            {
-                var errores = string.Join(", ", identityResult.Errors.Select(e => e.Description));
-                throw new InvalidOperationException(errores);
-            }
-
-            const string rolCiudadano = "Ciudadano";
-            if(!await _roleManager.RoleExistsAsync(rolCiudadano))
-            {
-                await _roleManager.CreateAsync(new Rol { Name = rolCiudadano, NormalizedName = "CIUDADANO"});
-            }
-            await _userManager.AddToRoleAsync(newUser, rolCiudadano);
+            var identityUserId = await _identityCiudadano.CrearCuentaAsync(dto.Email, dto.Password);
+            await _identityCiudadano.AsignarRoleAsync(identityUserId, "Ciudadano");    
 
             var usuarioDto = dto.Adapt<Usuarios>();
-            usuarioDto.UserId = newUser.Id;
+            usuarioDto.UserId = identityUserId;
             await _usuarioRepository.CrearUsuarioAsync(usuarioDto);
 
             var result = usuarioDto.Adapt<GetUsuarioDto>();
