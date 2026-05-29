@@ -48,7 +48,7 @@ namespace ProcessingSystem.Application.Services
                 EmailConfirmed = true,
             };
 
-            var result = await _userManager.CreateAsync(newUser);
+            var result = await _userManager.CreateAsync(newUser, password);
             if (!result.Succeeded)
             {
                 var errores = string.Join(", ", result.Errors.Select(e => e.Description));

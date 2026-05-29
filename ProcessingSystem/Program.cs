@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 using ProcessingSystem.Api.Middlewares;
 using FluentValidation;
 using ProcessingSystem.Application.Validators;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
@@ -44,6 +46,8 @@ builder.Services.AddScoped<ICredencialesCiudadanosService, CredencialesCiudadano
 builder.Services.AddScoped<IMovimientoRepository, MovimientoRepository>();
 builder.Services.AddScoped<IMovimientoService, MovimientoService>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserservice>();
+builder.Services.AddScoped<ITokenBlacklistService, MemoryCacheTokenBlacklistService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -89,6 +93,35 @@ builder.Services.AddAuthentication(options =>
             ValidAudience = jwtSettings["Audience"], 
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = async context =>
+            {
+                var blacklistService = context.HttpContext.RequestServices.GetRequiredService<ITokenBlacklistService>();
+                string authHeader = context.Request.Headers["Authorization"].ToString();
+
+                if (!string.IsNullOrEmpty(authHeader))
+                {
+                    string token = authHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase)
+                        ? authHeader.Substring(7).Trim()
+                        : authHeader.Trim();
+
+                    if(await blacklistService.EsTokenInvalidoAsync(token))
+                    {
+                        context.Fail("Token invalido, ha cerrado sesión");
+
+                        context.HttpContext.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                        context.HttpContext.Response.ContentType = "application/json";
+
+                        await context.HttpContext.Response.WriteAsJsonAsync(new
+                        {
+                            error = "Unauthorized",
+                            mensaje = "La sesión a expirado o fue cerrada"
+                        });
+                    }
+                }
+            }
+        };
     });
 
 //Mapster
@@ -112,6 +145,18 @@ builder.Services.AddValidatorsFromAssemblyContaining<ExpedienteDtoValidator>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConexion")));
 
+//Configuración de cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirAngular", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .WithExposedHeaders("Authorization");
+    });
+});
+
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionMiddleware>();
@@ -123,6 +168,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("PermitirAngular");
 
 app.UseRouting();
 

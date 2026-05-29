@@ -50,6 +50,7 @@ namespace ProcessingSystem.Application.Services
 
             var usuarioDto = dto.Adapt<Usuarios>();
             usuarioDto.UserId = identityUserId;
+
             await _usuarioRepository.CrearUsuarioAsync(usuarioDto);
 
             var result = usuarioDto.Adapt<GetUsuarioDto>();

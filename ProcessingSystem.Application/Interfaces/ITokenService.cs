@@ -1,4 +1,4 @@
-﻿using ProcessingSystem.Application.DTOs;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Interfaces
 {
-    public interface IAuthService
+    public interface ITokenService
     {
-        Task<string> AuthenticateAsync(LoginDto dto);
-        Task LogOutAsync(string token);
+        string GenerarTokenAsync(IdentityUser<Guid> user, IList<string> roles, string displayName);
     }
 }
