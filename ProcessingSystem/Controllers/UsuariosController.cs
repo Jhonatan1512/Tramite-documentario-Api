@@ -14,25 +14,21 @@ namespace ProcessingSystem.Api.Controllers
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly IUsuarioService _usuarioService;
+        private readonly ICurrentUserService _currentUserService;
 
-        public UsuariosController(IUsuarioRepository usuarioRepository, IUsuarioService usuarioService)
+        public UsuariosController(IUsuarioRepository usuarioRepository, IUsuarioService usuarioService, ICurrentUserService currentUserService)
         {
             _usuarioRepository = usuarioRepository;
             _usuarioService = usuarioService;
+            _currentUserService = currentUserService;
         }
 
         [HttpGet]
         [Authorize(Roles = "Personal")]
         public async Task<ActionResult> Gett()
         {
-            try
-            {
-                var result = await _usuarioRepository.GetAll();
-                return Ok(result);
-            } catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var result = await _usuarioRepository.GetAll();
+            return Ok(result);
         }
 
         [HttpPost("registrarse")]
@@ -50,17 +46,6 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(new { menssage = "Datos Actualizados" });
         }
 
-        private Guid UsuarioId
-        {
-            get
-            {
-                var usuarioClaim = User.FindFirst("id")?.Value ?? User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (string.IsNullOrWhiteSpace(usuarioClaim) || !Guid.TryParse(usuarioClaim, out var parserGuid))
-                {
-                    throw new UnauthorizedAccessException("El usuario no esta autenticado o el token es invalido");
-                }
-                return parserGuid;
-            }
-        }
+        private Guid UsuarioId => _currentUserService.GetUserId();
     }
 }

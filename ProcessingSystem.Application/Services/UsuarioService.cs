@@ -1,14 +1,8 @@
 ﻿using Mapster;
-using Microsoft.AspNetCore.Identity;
 using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Services
 {

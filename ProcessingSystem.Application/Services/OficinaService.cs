@@ -68,6 +68,8 @@ namespace ProcessingSystem.Application.Services
             var listaOficinasDto = await _oficinaRepository.GetAllAsync();
             var result = listaOficinasDto.Adapt<List<GetOficinasDto>>();
 
+            var oficinas = await _oficinaRepository.GetAllAsync();
+
             if (!result.Any()) return result;
 
             var todoElPersonal = await _personalRepository.GetAll();
@@ -79,8 +81,16 @@ namespace ProcessingSystem.Application.Services
                 .GroupBy(p => p.OficinaId!.Value)
                 .ToDictionary(g => g.Key, g => g.ToList());
 
+            var oficinasDiccionario = oficinas.ToDictionary(o => o.Id);
+
             foreach (var oficinaDto in result)
             {
+                var oficinaActual = oficinasDiccionario[oficinaDto.Id];
+                oficinaDto.OficinaReporte = oficinaActual.OficinaPadreId.HasValue &&
+                    oficinasDiccionario.TryGetValue(oficinaActual.OficinaPadreId.Value, out var oficinaSuperior)
+                        ? oficinaSuperior.Nombre
+                        : "Sin oficina de reporte";
+
                 if (personalPorOficina.TryGetValue(oficinaDto.Id, out var trabajadoresDeEstaOficina))
                 {
                     oficinaDto.Trabajadores = trabajadoresDeEstaOficina.Select(p => new TrabajadoresBasicoDto
