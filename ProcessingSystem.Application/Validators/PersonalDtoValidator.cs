@@ -24,6 +24,5 @@ namespace ProcessingSystem.Application.Validators
                 .NotEmpty().WithMessage("El DNI no puede estar vacío")
                 .Matches(@"^\d{8}$").WithMessage("El DNI debe tener exactamente 8 dígitos numéricos");
         }
-
     }
 }

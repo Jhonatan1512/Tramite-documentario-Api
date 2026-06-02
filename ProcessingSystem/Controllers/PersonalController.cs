@@ -34,7 +34,7 @@ namespace ProcessingSystem.Api.Controllers
         public async Task<ActionResult> ActualizarDatos(Guid id, ActualizarPersonalDto dto)
         {
             await _personalService.ActualizarPersonalAsync(id, UsuarioId, dto);
-            return Ok("Datos del usuario actualizados");
+            return Ok(new { mensaje = "Datos del usuario actualizados" });
         }
 
         [HttpGet("listado-personal")]

@@ -2,11 +2,6 @@
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
 using ProcessingSystem.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Infrastructure.Repositories
 {
@@ -35,7 +30,7 @@ namespace ProcessingSystem.Infrastructure.Repositories
         public async Task<IEnumerable<Usuarios>> GetAll()
         {
             return await _context.Usuarios
-                .Where(u => u.EstaEliminado != true)
+                .OrderBy(u => u.EstaEliminado)
                 .ToListAsync();
         }
 

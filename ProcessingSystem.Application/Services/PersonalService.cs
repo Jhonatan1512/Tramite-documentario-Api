@@ -95,35 +95,53 @@ namespace ProcessingSystem.Application.Services
 
         public async Task<IEnumerable<GetPersonalDto>> ObtenerTodosAsync()
         {
-            var personalDto = await _personalRepository.GetAll();            
-            var result = personalDto.Adapt<List<GetPersonalDto>>();
+            var personalDto = await _personalRepository.GetAll();
+            if (!personalDto.Any()) return Enumerable.Empty<GetPersonalDto>();
 
-            if(!result.Any()) return result;
+            var usuariosRolPersonal = await _userManager.GetUsersInRoleAsync("Personal");
+            var idsPersonal = usuariosRolPersonal.Select(u => u.Id).ToHashSet(); 
 
-            var userIds = personalDto.Where(p => p.UserId.HasValue).Select(p => p.UserId!.Value).Distinct().ToList();
-            var listaEmails = await _userManager.Users.Where(u => userIds.Contains(u.Id)).Select(u => new {u.Id, u.Email}).ToListAsync();
+            var personalFiltrado = personalDto
+                .Where(p => p.UserId.HasValue && idsPersonal.Contains(p.UserId.Value))
+                .ToList();
+
+            if (!personalFiltrado.Any()) return Enumerable.Empty<GetPersonalDto>();
+
+            var result = personalFiltrado.Adapt<List<GetPersonalDto>>();
+
+            var userIds = personalFiltrado.Select(p => p.UserId!.Value).Distinct().ToList();
+            var listaEmails = await _userManager.Users
+                .Where(u => userIds.Contains(u.Id))
+                .Select(u => new { u.Id, u.Email })
+                .ToListAsync();
 
             var emailDictionary = listaEmails.ToDictionary(u => u.Id, u => u.Email);
 
+            var oficinasDb = await _oficinaRepository.GetAllAsync();
+            var oficinaDictionary = oficinasDb.ToDictionary(o => o.Id, o => o.Nombre);
+
+            var personalMap = personalFiltrado.ToDictionary(p => p.Dni);
+
             foreach (var user in result)
             {
-                var entidadIdentity = personalDto.FirstOrDefault(p => p.Dni == user.Dni);
-                if(entidadIdentity?.UserId != null && emailDictionary.TryGetValue(entidadIdentity.UserId.Value, out var email))
+                if (personalMap.TryGetValue(user.Dni, out var entidad) && entidad.UserId.HasValue)
                 {
-                    user.Email = email!;
+                    if (emailDictionary.TryGetValue(entidad.UserId.Value, out var email))
+                    {
+                        user.Email = email!;
+                    }
                 }
-                
-                if(user.OficinaId != Guid.Empty)
+
+                if (user.OficinaId != Guid.Empty && oficinaDictionary.TryGetValue(user.OficinaId, out var nombreOficina))
                 {
-                    var oficinaDb = await _oficinaRepository.GetByIdAsync(user.OficinaId);
-                    user.OficinaId = oficinaDb!.Id;
-                    user.NombreOficina = oficinaDb != null ? oficinaDb.Nombre : "Sin Oficina";
-                } else
+                    user.NombreOficina = nombreOficina;
+                }
+                else
                 {
                     user.NombreOficina = "Sin oficina";
                 }
             }
-            return result;
+            return result; 
         }
 
         public async Task<string> EliminarUsuario(Guid personalId, Guid usuarioId, DesactivarActivarPersonalDto dto)

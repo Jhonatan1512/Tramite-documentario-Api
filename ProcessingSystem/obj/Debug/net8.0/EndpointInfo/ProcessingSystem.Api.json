@@ -728,9 +728,10 @@
             "type": "string",
             "nullable": true
           },
-          "fechaModificacion": {
+          "oficinaPadreId": {
             "type": "string",
-            "format": "date-time"
+            "format": "uuid",
+            "nullable": true
           }
         },
         "additionalProperties": false

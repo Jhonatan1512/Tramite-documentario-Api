@@ -37,8 +37,18 @@ namespace ProcessingSystem.Application.Services
                 throw new KeyNotFoundException("Oficina no encontrada");
             }
 
+            if (dto.OficinaPadreId.HasValue)
+            {
+                var padreExiste = await _oficinaRepository.GetByIdAsync(dto.OficinaPadreId.Value);
+                if (padreExiste == null)
+                {
+                    throw new KeyNotFoundException("La oficina superior especificada no existe");
+                }
+            }
+
             dto.Adapt(oficinaExiste);
             oficinaExiste.UsuarioModificacion = usuarioModificacionId;
+            oficinaExiste.FechaModificacion = DateTime.Now;
 
             await _oficinaRepository.ActualizarOficina(oficinaExiste);
         }
@@ -52,7 +62,7 @@ namespace ProcessingSystem.Application.Services
                 var padreExiste = await _oficinaRepository.GetByIdAsync(dto.OficinaPadreId.Value);
                 if (padreExiste == null)
                 {
-                    throw new Exception("La oficina superior especificada no existe");
+                    throw new KeyNotFoundException("La oficina superior especificada no existe");
                 }
             }
 
@@ -93,7 +103,9 @@ namespace ProcessingSystem.Application.Services
 
                 if (personalPorOficina.TryGetValue(oficinaDto.Id, out var trabajadoresDeEstaOficina))
                 {
-                    oficinaDto.Trabajadores = trabajadoresDeEstaOficina.Select(p => new TrabajadoresBasicoDto
+                    oficinaDto.Trabajadores = trabajadoresDeEstaOficina
+                        .Where(p => p.EstaEliminado == false)
+                        .Select(p => new TrabajadoresBasicoDto
                     {
                         Id = p.Id,
                         NombreCompleto = $"{p.Nombre} {p.Apellidos}".Trim(),

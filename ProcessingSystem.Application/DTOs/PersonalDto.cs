@@ -19,12 +19,14 @@ namespace ProcessingSystem.Application.DTOs
 
     public class GetPersonalDto
     {
+        public Guid Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
         public string Apellidos { get; set; } = string.Empty;
         public string Dni { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public Guid OficinaId { get; set; } 
         public string NombreOficina {  get; set; } = string.Empty; 
+        public string EstaEliminado { get; set; } = string.Empty;
     }
 
     public class DesactivarActivarPersonalDto

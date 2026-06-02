@@ -15,7 +15,7 @@ namespace ProcessingSystem.Application.DTOs
     public class ActualizarOficinaDto
     {
         public string Nombre { get; set; } = string.Empty;
-        public DateTime FechaModificacion { get; set; }
+        public Guid? OficinaPadreId { get; set; }
     }
 
     public class GetOficinasDto
