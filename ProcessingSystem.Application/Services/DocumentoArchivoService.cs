@@ -3,11 +3,8 @@ using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
 using ProcessingSystem.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Net.Mime;
 
 namespace ProcessingSystem.Application.Services
 {
@@ -58,6 +55,31 @@ namespace ProcessingSystem.Application.Services
             }                     
 
             await _storageService.EliminarArchivo(archivExiste);
+        }
+
+        public async Task<GetArchivoDto?> ObtenerArchivAsync(Guid archivoId, string rutaBaseWeb, Guid usuarioId)
+        {
+            var archivoExiste = await _documentoArchivoRepository.ObtenerArchivoPorIdAsync(archivoId);
+            if (archivoExiste == null || string.IsNullOrWhiteSpace(archivoExiste.UrlArchivo))
+            {
+                throw new InvalidOperationException("El archivo no existe en la base de datos.");
+            }
+
+            if (!_storageService.ExisteArchivo(archivoExiste.UrlArchivo, rutaBaseWeb))
+            {
+                return null;
+            }
+
+            var flujo = _storageService.ObtenerFlujoArchivo(archivoExiste.UrlArchivo, rutaBaseWeb);
+            var contentType = _storageService.ObtenerContentType(archivoExiste.UrlArchivo);
+
+            var dto = archivoExiste.Adapt<GetArchivoDto>();
+
+            dto.Contenido = flujo;
+            dto.ContentType = contentType ?? "application/octet-stream"; 
+            dto.NombreArchivo = $"{archivoExiste.NombreArchivo}{archivoExiste.Extension}";
+
+            return dto;
         }
 
         public async Task<DocumentoArchivoDto> SubirArchivoAsync(Guid usuarioId, SubirArchivoDto dto)

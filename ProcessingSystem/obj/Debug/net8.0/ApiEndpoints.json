@@ -84,6 +84,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ProcessingSystem.Api.Controllers.DocumentoArchivoController",
+    "Method": "ObtenerArchivo",
+    "RelativePath": "api/DocumentoArchivo/ver/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
     "Method": "Eliminarexpediente",
     "RelativePath": "api/Expediente/{expedienteId}",

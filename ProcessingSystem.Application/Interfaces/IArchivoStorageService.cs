@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using ProcessingSystem.Application.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,9 @@ namespace ProcessingSystem.Application.Interfaces
     {
         Task<string> GuardarArchivoAsync(IFormFile archivo);
         Task EliminarArchivo(string urlArchivo);
+        bool ExisteArchivo(string path, string rutaBaseWeb);
+        Stream ObtenerFlujoArchivo(string path, string rutaBaseWeb);
+        string ObtenerContentType(string path);
+        
     }
 }

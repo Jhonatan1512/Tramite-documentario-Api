@@ -1,1 +1,2 @@
-wwwroot\Uploads\Horario_1°_B_315421c9-a510-4efa-b760-8e6dbcb811b7.pdf
+wwwroot\Uploads\Horario_1°_A_7709e3ed-4295-4327-af8c-e4c6c665b778.pdf
+wwwroot\Uploads\manual-javascript_e0d18540-bc89-4acf-87dc-d60dee73c558.pdf

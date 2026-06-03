@@ -12,5 +12,6 @@ namespace ProcessingSystem.Application.Interfaces
         Task<DocumentoArchivoDto> SubirArchivoAsync(Guid usuarioId, SubirArchivoDto dto);
         Task EliminarArchivoAsync(Guid archivoId, Guid usuarioId);
         Task ActualizarArchivoAsync(Guid usuarioId, ActualizarArchivoDto dto);
+        Task<GetArchivoDto?> ObtenerArchivAsync(Guid archivoId, string rutaBaseWeb, Guid usuarioId);
     }
 }

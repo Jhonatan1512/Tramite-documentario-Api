@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProcessingSystem.Application.Services
 {
@@ -47,6 +43,37 @@ namespace ProcessingSystem.Application.Services
             }
 
             return $"/Uploads/{nombreArchivoFisico}";
+        }
+
+        public bool ExisteArchivo(string path, string rutaBaseWeb)
+        {
+            var rutaAbsoluta = CalcularRutaAbsoluta(path, rutaBaseWeb);
+            return File.Exists(rutaAbsoluta);
+        }
+
+        public string ObtenerContentType(string path)
+        {
+            var extension = Path.GetExtension(path).ToLower().Trim();
+            return extension switch
+            {
+                ".pdf" => "application/pdf",
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".png" => "image/png",
+                ".gif" => "image/gif",
+                _ => "application/octet-stream"
+            };
+        }
+
+        public Stream ObtenerFlujoArchivo(string path, string rutaBaseWeb)
+        {
+            var rutaAbsoluta = CalcularRutaAbsoluta(path, rutaBaseWeb);
+            return new FileStream(rutaAbsoluta, FileMode.Open, FileAccess.Read);
+        }
+
+        private string CalcularRutaAbsoluta(string path, string rutaBaseWeb)
+        {
+            var nombreFisico = Path.GetFileName(path);
+            return Path.Combine(rutaBaseWeb, "Uploads", nombreFisico);
         }
     }
 }

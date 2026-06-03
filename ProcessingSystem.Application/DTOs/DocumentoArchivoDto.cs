@@ -30,4 +30,11 @@ namespace ProcessingSystem.Application.DTOs
         public Guid Id {  set; get; }
         public IFormFile ArchivoNuevo { get; set; } = null!;
     }
+
+    public class GetArchivoDto
+    {
+        public Stream Contenido { get; set; } = null!;
+        public string ContentType { get; set; } = null!;
+        public string NombreArchivo { get; set; } = null!;
+    }
 }

@@ -14,11 +14,13 @@ namespace ProcessingSystem.Api.Controllers
     {
         private readonly IDocumentoArchivoService _documentoArchivoService;
         private readonly ICurrentUserService _currentUser;
+        private readonly IWebHostEnvironment _env;
 
-        public DocumentoArchivoController(IDocumentoArchivoService documentoArchivoService, ICurrentUserService currentUser)
+        public DocumentoArchivoController(IDocumentoArchivoService documentoArchivoService, ICurrentUserService currentUser, IWebHostEnvironment env)
         {
             _documentoArchivoService = documentoArchivoService;
             _currentUser = currentUser;
+            _env = env;
         }
 
         [HttpPost]
@@ -43,6 +45,13 @@ namespace ProcessingSystem.Api.Controllers
         {
             await _documentoArchivoService.ActualizarArchivoAsync(UsuarioId, dto);
             return Ok(new { mensaje = "Archivo actualizado"});
+        }
+
+        [HttpGet("ver/{id}")]
+        public async Task<ActionResult> ObtenerArchivo(Guid id)
+        {
+            var result = await _documentoArchivoService.ObtenerArchivAsync(id, _env.WebRootPath, UsuarioId);
+            return File(result!.Contenido, result.ContentType);
         }
 
         private Guid UsuarioId => _currentUser.GetUserId();

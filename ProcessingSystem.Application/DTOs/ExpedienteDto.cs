@@ -40,6 +40,8 @@ namespace ProcessingSystem.Application.DTOs
     {
         public Guid Id { get; set; }
         public string NombreArchivo { get; set; } = string.Empty;
+        public string Extension { get; set; } = string.Empty;
+        public string UrlArchivo { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; }
     }
 
