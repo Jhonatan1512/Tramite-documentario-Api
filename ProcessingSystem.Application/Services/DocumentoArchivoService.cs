@@ -32,12 +32,12 @@ namespace ProcessingSystem.Application.Services
 
             var urlArchivoViejo = archivoExiste.UrlArchivo;
 
-            string nuevaUrl = await _storageService.GuardarArchivoAsync(dto.ArchivoNuevo);
+            string nuevaUrl = await _storageService.GuardarArchivoAsync(dto.Archivo);
 
             archivoExiste.UrlArchivo = nuevaUrl;
-            archivoExiste.NombreArchivo = Path.GetFileNameWithoutExtension(dto.ArchivoNuevo.FileName);
-            archivoExiste.Extension = Path.GetExtension(dto.ArchivoNuevo.FileName).ToLower();            
-            archivoExiste.Tamanio = dto.ArchivoNuevo.Length;
+            archivoExiste.NombreArchivo = Path.GetFileNameWithoutExtension(dto.Archivo.FileName);
+            archivoExiste.Extension = Path.GetExtension(dto.Archivo.FileName).ToLower();            
+            archivoExiste.Tamanio = dto.Archivo.Length;
             archivoExiste.UsuarioModificacion = usuarioId.ToString();
             archivoExiste.FechaModificacion = DateTime.Now;
 

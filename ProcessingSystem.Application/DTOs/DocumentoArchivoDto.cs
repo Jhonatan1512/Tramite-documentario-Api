@@ -28,7 +28,7 @@ namespace ProcessingSystem.Application.DTOs
     public class ActualizarArchivoDto
     {
         public Guid Id {  set; get; }
-        public IFormFile ArchivoNuevo { get; set; } = null!;
+        public IFormFile Archivo { get; set; } = null!;
     }
 
     public class GetArchivoDto

@@ -16,6 +16,31 @@ namespace ProcessingSystem.Application.Services
         {
             _httpContextAccessor = httpContextAccessor;
         }
+
+        public Guid GetOficinaId()
+        {
+            var user = _httpContextAccessor.HttpContext?.User;
+            if (user == null)
+            {
+                throw new UnauthorizedAccessException("No hay contexto de usuario");
+            }
+
+            var usuarioClaim = user.Claims
+                .FirstOrDefault(c => c.Type.Equals("oficinaId", StringComparison.OrdinalIgnoreCase))?.Value;
+
+            if (string.IsNullOrWhiteSpace(usuarioClaim) || !Guid.TryParse(usuarioClaim, out var parsedGuid))
+            {
+                throw new UnauthorizedAccessException("Usuario no autenticado o token mal estructurado");
+            }
+
+            if (parsedGuid == Guid.Empty)
+            {
+                throw new UnauthorizedAccessException("El usuario con sesión activa no pertenece a ninguna oficina.");
+            }
+
+            return parsedGuid;
+        }
+
         public Guid GetUserId()
         {
             var user = _httpContextAccessor.HttpContext?.User;

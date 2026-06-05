@@ -44,10 +44,12 @@ namespace ProcessingSystem.Application.Services
 
             var roles = await _userManager.GetRolesAsync(user);
             string nameToken = "User";
+            string oficinaId = "";
 
             if (roles.Contains("Admin"))
             {
                 nameToken = "Administrador del Sistema";
+                oficinaId = Guid.Empty.ToString();
             } else
             {
                 if(estaActivo == null)
@@ -55,9 +57,10 @@ namespace ProcessingSystem.Application.Services
                     throw new Exception("Error");
                 }
                 nameToken = $"{estaActivo.Nombre} {estaActivo.Apellidos}";
+                oficinaId = estaActivo.OficinaId?.ToString() ?? Guid.Empty.ToString();
             }
 
-                return _tokenService.GenerarTokenAsync(user, roles, nameToken);            
+                return _tokenService.GenerarTokenAsync(user, roles, nameToken, oficinaId!);            
         }
 
         public async Task LogOutAsync(string token)

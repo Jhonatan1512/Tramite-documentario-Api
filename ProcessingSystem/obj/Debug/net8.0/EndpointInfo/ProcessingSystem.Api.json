@@ -131,14 +131,14 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "ArchivoNuevo": {
+                  "Archivo": {
                     "type": "string",
                     "format": "binary"
                   }
                 }
               },
               "encoding": {
-                "ArchivoNuevo": {
+                "Archivo": {
                   "style": "form"
                 }
               }
@@ -272,6 +272,18 @@
       }
     },
     "/api/Expediente/todos-los-expedientes": {
+      "get": {
+        "tags": [
+          "Expediente"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Expediente/lista-epedientes-perfil": {
       "get": {
         "tags": [
           "Expediente"

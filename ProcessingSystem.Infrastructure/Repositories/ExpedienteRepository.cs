@@ -52,6 +52,29 @@ namespace ProcessingSystem.Infrastructure.Repositories
             await _context.Expedientes.Where(e => e.Id == expedienteId).ExecuteDeleteAsync();
         }
 
+        public async Task<IEnumerable<Expediente>> ObtenerExpedientesMesaPartesAsync()
+        {
+            return await _context.Expedientes
+                .Include(e => e.Archivos)
+                .Include(e => e.Historial)
+                .OrderByDescending(e => e.FechaCreacion)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Expediente>> ObtenerPorOficinaAsync(Guid oficinaId)
+        {
+            return await _context.Expedientes
+                .Include(e => e.Archivos)
+                .Include(e => e.Historial)
+                .Where(e => _context.Movimientos
+                    .Where(m => m.ExpedienteId == e.Id)
+                    .OrderByDescending(m => m.FechaCreacion)
+                    .Select(m => m.OficinaDestinoId)
+                    .FirstOrDefault() == oficinaId)
+                .OrderByDescending(e => e.FechaCreacion)
+                .ToListAsync();
+        }
+
         public async Task<IEnumerable<Expediente>> ObtenerTodoslosExpedientesAsync(Guid usuarioId)
         {
             return await _context.Expedientes

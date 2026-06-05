@@ -16,5 +16,7 @@ namespace ProcessingSystem.Domain.Interfaces
         Task ActualizarExpedienteAsync(Expediente expediente);
         Task EliminarExpedienteAsync(Guid expedienteId);
         Task ActualizarEstado(Expediente expediente);
+        Task<IEnumerable<Expediente>> ObtenerExpedientesMesaPartesAsync();
+        Task<IEnumerable<Expediente>> ObtenerPorOficinaAsync(Guid oficinaId); 
     }
 }

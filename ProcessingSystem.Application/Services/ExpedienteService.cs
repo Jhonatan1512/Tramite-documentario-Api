@@ -13,15 +13,17 @@ namespace ProcessingSystem.Application.Services
         private readonly ITipoDocumentoRepository _tipoDocumentoRepository;
         private readonly IUsuarioContextService _usuarioContextService;
         private readonly IOficinaRepository _oficinaRepository;
+        private readonly ICurrentUserService _currentUserService;
 
         public ExpedienteService(IExpedienteRepository expedienteRepository,              
             ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioContextService usuarioContextService,
-            IOficinaRepository oficinaRepository)
+            IOficinaRepository oficinaRepository, ICurrentUserService currentUserService)
         {
             _expedienteRepository = expedienteRepository;
             _tipoDocumentoRepository = tipoDocumentoRepository;
             _usuarioContextService = usuarioContextService;
             _oficinaRepository = oficinaRepository;
+            _currentUserService = currentUserService;
         }
 
         public async Task ActualizarExpedienteAsync(Guid expedienteId, Guid usuarioId, ExpedienteDto dto)
@@ -107,6 +109,23 @@ namespace ProcessingSystem.Application.Services
                 registro.TipoDocumentoNombre = tipoDocDb != null ? tipoDocDb.Nombre : "Sin Tipo";
             }
             return result;
+        }
+
+        public async Task<IEnumerable<GetAllExpedientesDto>> ObtenerExpidientesPorPerfil()
+        {
+            var oficinaId = _currentUserService.GetOficinaId();
+            
+            var mesaPartes = await _oficinaRepository.ObtenerMesaDePartesAsync();
+
+            if (mesaPartes != null && oficinaId == mesaPartes.Id)
+            {
+                var expedientesMesa = await _expedienteRepository.ObtenerExpedientesMesaPartesAsync();
+                return expedientesMesa.Adapt<IEnumerable<GetAllExpedientesDto>>();
+            }
+
+            var result = await _expedienteRepository.ObtenerPorOficinaAsync(oficinaId);
+
+            return result.Adapt<IEnumerable<GetAllExpedientesDto>>();
         }
     }
 }

@@ -76,7 +76,7 @@
         "IsRequired": false
       },
       {
-        "Name": "ArchivoNuevo",
+        "Name": "Archivo",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
@@ -134,6 +134,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.ExpedienteController",
+    "Method": "ObtenerExpedientesPorPerfil",
+    "RelativePath": "api/Expediente/lista-epedientes-perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -9,5 +9,6 @@ namespace ProcessingSystem.Application.Interfaces
     public interface ICurrentUserService
     {
         Guid GetUserId();
+        Guid GetOficinaId();
     }
 }

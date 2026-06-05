@@ -52,6 +52,13 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("lista-epedientes-perfil")]
+        public async Task<ActionResult> ObtenerExpedientesPorPerfil()
+        {
+            var result = await _expedienteService.ObtenerExpidientesPorPerfil();
+            return Ok(result);
+        }
+
         private Guid UsuarioId => _currentUser.GetUserId();
     }
 }

@@ -13,5 +13,6 @@ namespace ProcessingSystem.Application.Interfaces
         Task ActualizarExpedienteAsync(Guid expedienteId, Guid usuarioId, ExpedienteDto dto);
         Task EliminarExpedienteService(Guid expedienteId, Guid usuarioId);
         Task<IEnumerable<GetAllExpedientesDto>> GetExpedienteListAsync(Guid usuarioId);
+        Task<IEnumerable<GetAllExpedientesDto>> ObtenerExpidientesPorPerfil();
     }
 }
