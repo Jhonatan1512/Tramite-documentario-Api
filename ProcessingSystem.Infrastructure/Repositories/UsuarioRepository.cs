@@ -68,5 +68,12 @@ namespace ProcessingSystem.Infrastructure.Repositories
         {
             return await _context.Usuarios.FirstOrDefaultAsync(u => u.UserId == usuarioId);
         }
+
+        public async Task<IEnumerable<Usuarios>> ObtenerUsuariosPorListaIdsAsync(List<Guid> ids)
+        {
+            return await _context.Usuarios
+                .Where(u => ids.Contains(u.Id) && u.EstaEliminado == false)
+                .ToListAsync();
+        }
     }
 }

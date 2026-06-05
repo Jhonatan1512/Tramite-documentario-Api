@@ -1,2 +1,3 @@
 wwwroot\Uploads\Copia POO_95337618-d660-4f9a-932c-29071949db28.pdf
+wwwroot\Uploads\Horario_1°_A_1010a13d-e14c-4430-b324-b8ab2698c045.pdf
 wwwroot\Uploads\Horario_1°_B_a618d382-4bb0-43df-b404-21555ab7d04f.pdf

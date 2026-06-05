@@ -14,16 +14,18 @@ namespace ProcessingSystem.Application.Services
         private readonly IUsuarioContextService _usuarioContextService;
         private readonly IOficinaRepository _oficinaRepository;
         private readonly ICurrentUserService _currentUserService;
+        private readonly IUsuarioRepository _usuarioRepository;
 
         public ExpedienteService(IExpedienteRepository expedienteRepository,              
             ITipoDocumentoRepository tipoDocumentoRepository, IUsuarioContextService usuarioContextService,
-            IOficinaRepository oficinaRepository, ICurrentUserService currentUserService)
+            IOficinaRepository oficinaRepository, ICurrentUserService currentUserService, IUsuarioRepository usuarioRepository)
         {
             _expedienteRepository = expedienteRepository;
             _tipoDocumentoRepository = tipoDocumentoRepository;
             _usuarioContextService = usuarioContextService;
             _oficinaRepository = oficinaRepository;
             _currentUserService = currentUserService;
+            _usuarioRepository = usuarioRepository;
         }
 
         public async Task ActualizarExpedienteAsync(Guid expedienteId, Guid usuarioId, ExpedienteDto dto)
@@ -114,18 +116,47 @@ namespace ProcessingSystem.Application.Services
         public async Task<IEnumerable<GetAllExpedientesDto>> ObtenerExpidientesPorPerfil()
         {
             var oficinaId = _currentUserService.GetOficinaId();
-            
             var mesaPartes = await _oficinaRepository.ObtenerMesaDePartesAsync();
+
+            List<GetAllExpedientesDto> resultDto;
 
             if (mesaPartes != null && oficinaId == mesaPartes.Id)
             {
                 var expedientesMesa = await _expedienteRepository.ObtenerExpedientesMesaPartesAsync();
-                return expedientesMesa.Adapt<IEnumerable<GetAllExpedientesDto>>();
+                resultDto = expedientesMesa.Adapt<List<GetAllExpedientesDto>>();
+            }
+            else
+            {
+                var result = await _expedienteRepository.ObtenerPorOficinaAsync(oficinaId);
+                resultDto = result.Adapt<List<GetAllExpedientesDto>>();
             }
 
-            var result = await _expedienteRepository.ObtenerPorOficinaAsync(oficinaId);
+            var usuarioIds = resultDto
+                .Where(u => u.UsuarioCreacion != Guid.Empty)
+                .Select(u => u.UsuarioCreacion)
+                .Distinct()
+                .ToList();
 
-            return result.Adapt<IEnumerable<GetAllExpedientesDto>>();
+            if (usuarioIds.Any())
+            {
+                var listaUsuarios = await _usuarioRepository.ObtenerUsuariosPorListaIdsAsync(usuarioIds);
+
+                foreach (var item in resultDto)
+                {
+                    var usuarioDb = listaUsuarios.FirstOrDefault(u => u.Id == item.UsuarioCreacion);
+                    if (usuarioDb != null)
+                    {
+                        item.NombreUsuarioCreacion = $"{usuarioDb.Nombre} {usuarioDb.Apellidos}";
+                        item.DniUsuarioCreacion = usuarioDb.Dni;
+                    }
+                    else
+                    {
+                        item.NombreUsuarioCreacion = "Usuario no encontrado";
+                        item.DniUsuarioCreacion = "Sin Dni";
+                    }
+                }
+            }
+            return resultDto;
         }
     }
 }

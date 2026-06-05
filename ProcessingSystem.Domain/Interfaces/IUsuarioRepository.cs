@@ -15,5 +15,6 @@ namespace ProcessingSystem.Domain.Interfaces
         Task<Usuarios?> ObtenerPorId(Guid usuarioId);
         Task ActualizarUsuarioAsync(Usuarios usuarios);
         Task<string> ObtenerOficinaPersonalAsync(Guid usuarioId);
+        Task<IEnumerable<Usuarios>> ObtenerUsuariosPorListaIdsAsync(List<Guid> ids);
     }
 }

@@ -37,6 +37,7 @@ namespace ProcessingSystem.Application.Services
             existeRegistro.UsuarioModificacion = usuarioModificacionId.ToString();
             existeRegistro.Estado = EstadoMovimiento.Recibido;
             existeRegistro.FechaModificacion = DateTime.Now;
+            existeRegistro.FechaRecepcion = DateTime.Now;
 
             await _movimientoRepository.ActualizarMovimientoAsync(existeRegistro);
         }
@@ -52,9 +53,29 @@ namespace ProcessingSystem.Application.Services
             registraMovimiento.UsuarioCreacion = usuarioCreacionId.ToString();
             registraMovimiento.EmisorId = usuarioCreacionId;
             registraMovimiento.OficinaOrigenId = Guid.Parse(oficinaPersonalId);
-            registraMovimiento.Estado = EstadoMovimiento.Derivado;
 
-            expedienteExiste.Estado = EstadoExpediente.EnProceso;
+            switch (dto.Estado)
+            {
+                case EstadoMovimiento.Derivado:
+                    registraMovimiento.Estado = EstadoMovimiento.Derivado;
+                    expedienteExiste.Estado = EstadoExpediente.EnProceso;
+                    break;
+
+                case EstadoMovimiento.Atendido:
+                    registraMovimiento.Estado = EstadoMovimiento.Atendido;
+                    expedienteExiste.Estado = EstadoExpediente.Finalizado;
+                    break;
+
+                case EstadoMovimiento.Rechazado:
+                    registraMovimiento.Estado = EstadoMovimiento.Rechazado;
+                    expedienteExiste.Estado = EstadoExpediente.Observado; 
+                    break;
+
+                case EstadoMovimiento.Recibido:
+                    registraMovimiento.Estado = EstadoMovimiento.Recibido;
+                    break;
+            }
+
             expedienteExiste.UsuarioModificacion = usuarioCreacionId.ToString();
             expedienteExiste.FechaModificacion = DateTime.Now;
 

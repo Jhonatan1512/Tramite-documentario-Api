@@ -33,6 +33,7 @@ namespace ProcessingSystem.Application.DTOs
 
     public class GetArchivoDto
     {
+        public Guid Id { set; get; }
         public Stream Contenido { get; set; } = null!;
         public string ContentType { get; set; } = null!;
         public string NombreArchivo { get; set; } = null!;

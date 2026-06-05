@@ -24,13 +24,25 @@ namespace ProcessingSystem.Application.Services
 
             if(!await _roleManager.RoleExistsAsync(nombreRole))
             {
-                await _roleManager.CreateAsync(new Rol
-                {
+                var resultCrear = await _roleManager.CreateAsync(new Rol
+                { 
                     Name = nombreRole,
                     NormalizedName = nombreRole.ToUpper()
                 });
 
-                await _userManager.AddToRoleAsync(user, nombreRole);
+                if (!resultCrear.Succeeded)
+                {
+                    throw new Exception($"No se pudo crear el rol: {string.Join(", ", resultCrear.Errors.Select(e => e.Description))}");
+                }
+            }
+
+            if (!await _userManager.IsInRoleAsync(user, nombreRole))
+            {
+                var resultAsignar = await _userManager.AddToRoleAsync(user, nombreRole);
+                if (!resultAsignar.Succeeded)
+                {
+                    throw new Exception($"No se pudo asignar el rol al usuario: {string.Join(", ", resultAsignar.Errors.Select(e => e.Description))}");
+                }
             }
         }
 

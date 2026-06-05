@@ -18,7 +18,6 @@ namespace ProcessingSystem.Application.DTOs
 
     public class ActualizarMovimientoDto
     {
-        public DateTime FechaRecepcion { get; set; } = DateTime.Now;
         public string ComentarioFinal {  get; set; } = string.Empty;
     }
 
@@ -27,5 +26,6 @@ namespace ProcessingSystem.Application.DTOs
         public Guid ExpedienteId { get; set; }
         public Guid OficinaDestinoId { get; set; }
         public string? ComentarioDerivacion { get; set; } = string.Empty;
+        public EstadoMovimiento Estado { get; set; }
     }
 }

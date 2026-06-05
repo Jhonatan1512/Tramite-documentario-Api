@@ -22,7 +22,7 @@ namespace ProcessingSystem.Api.Controllers
             _currentUserService = currentUserService;
         }
 
-        [HttpPut("atualizar-movimiento/{id}")]
+        [HttpPut("actualizar-movimiento/{id}")]
         [Authorize(Roles = "Personal")]
         public async Task<ActionResult> ActualizarMovimiento(ActualizarMovimientoDto dto, Guid id)
         {

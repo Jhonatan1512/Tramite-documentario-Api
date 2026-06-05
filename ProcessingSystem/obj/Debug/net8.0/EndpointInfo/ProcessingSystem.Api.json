@@ -295,7 +295,7 @@
         }
       }
     },
-    "/api/Movimiento/atualizar-movimiento/{id}": {
+    "/api/Movimiento/actualizar-movimiento/{id}": {
       "put": {
         "tags": [
           "Movimiento"
@@ -745,10 +745,6 @@
       "ActualizarMovimientoDto": {
         "type": "object",
         "properties": {
-          "fechaRecepcion": {
-            "type": "string",
-            "format": "date-time"
-          },
           "comentarioFinal": {
             "type": "string",
             "nullable": true
@@ -843,6 +839,17 @@
         },
         "additionalProperties": false
       },
+      "EstadoMovimiento": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ExpedienteDto": {
         "type": "object",
         "properties": {
@@ -923,6 +930,9 @@
           "comentarioDerivacion": {
             "type": "string",
             "nullable": true
+          },
+          "estado": {
+            "$ref": "#/components/schemas/EstadoMovimiento"
           }
         },
         "additionalProperties": false

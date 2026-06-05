@@ -175,7 +175,7 @@
   {
     "ContainingType": "ProcessingSystem.Api.Controllers.MovimientoController",
     "Method": "ActualizarMovimiento",
-    "RelativePath": "api/Movimiento/atualizar-movimiento/{id}",
+    "RelativePath": "api/Movimiento/actualizar-movimiento/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

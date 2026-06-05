@@ -35,12 +35,12 @@ namespace ProcessingSystem.Application.Services
             await _usuarioRepository.ActualizarUsuarioAsync(usuario);            
         }
 
-        public async Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto)
+        public async Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto) 
         {
             await _ciudadanosService.ValidarRegistrosDuplicados(dto.Email, dto.Dni);
 
             var identityUserId = await _identityCiudadano.CrearCuentaAsync(dto.Email, dto.Password);
-            await _identityCiudadano.AsignarRoleAsync(identityUserId, "Ciudadano");    
+            await _identityCiudadano.AsignarRoleAsync(identityUserId, "Ciudadano");     
 
             var usuarioDto = dto.Adapt<Usuarios>();
             usuarioDto.UserId = identityUserId;

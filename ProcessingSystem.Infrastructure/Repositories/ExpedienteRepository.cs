@@ -57,6 +57,7 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return await _context.Expedientes
                 .Include(e => e.Archivos)
                 .Include(e => e.Historial)
+                .Include(e => e.Usuario)
                 .OrderByDescending(e => e.FechaCreacion)
                 .ToListAsync();
         }
@@ -66,6 +67,7 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return await _context.Expedientes
                 .Include(e => e.Archivos)
                 .Include(e => e.Historial)
+                .Include(e => e.Usuario)
                 .Where(e => _context.Movimientos
                     .Where(m => m.ExpedienteId == e.Id)
                     .OrderByDescending(m => m.FechaCreacion)

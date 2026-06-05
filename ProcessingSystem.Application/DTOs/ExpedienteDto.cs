@@ -31,6 +31,9 @@ namespace ProcessingSystem.Application.DTOs
         public string Estado { get; set; } = string.Empty;
         public Guid TipoDocumentoId { get; set; }
         public string TipoDocumentoNombre { get; set; } = string.Empty;
+        public Guid UsuarioCreacion {  get; set; } 
+        public string NombreUsuarioCreacion { get; set; } = string.Empty;
+        public string DniUsuarioCreacion { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; }
         public IEnumerable<ArchivoDto> Archivos { get; set; } = [];
         public IEnumerable<HistorialMovimientosDto> Historial { get; set; } = [];
@@ -52,5 +55,7 @@ namespace ProcessingSystem.Application.DTOs
         public string? ComentarioFinal { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaRecepcion { get; set; }
+        public Guid OficinaDestinoId { get; set; }
+        public Guid OficinaOrigenId { get; set; }
     }
 }
