@@ -195,6 +195,22 @@
   },
   {
     "ContainingType": "ProcessingSystem.Api.Controllers.MovimientoController",
+    "Method": "FinalizarMovimineot",
+    "RelativePath": "api/Movimiento/finalizar-movimiento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.FinalizarMovimientoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.MovimientoController",
     "Method": "RegistrarMovimiento",
     "RelativePath": "api/Movimiento/registra-movimiento",
     "HttpMethod": "POST",
@@ -365,16 +381,6 @@
     "ContainingType": "ProcessingSystem.Api.Controllers.TipoDocumentoController",
     "Method": "ObetenerTodos",
     "RelativePath": "api/TipoDocumento/lista-tipo-documentos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
-    "Method": "Gett",
-    "RelativePath": "api/Usuarios",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

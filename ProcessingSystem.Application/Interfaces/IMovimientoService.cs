@@ -11,5 +11,6 @@ namespace ProcessingSystem.Application.Interfaces
     {
         Task ActualizarMovimientoAsync(ActualizarMovimientoDto dto, Guid usuarioModificacionId, Guid idMovimiento);
         Task RegistrarMovimiento(RegistrarMovimientoDto dto, Guid usuarioCreacionId);
+        Task FinalizarMovimientoAsync(FinalizarMovimientoDto dto, Guid usuarioCreacionId);
     }
 }

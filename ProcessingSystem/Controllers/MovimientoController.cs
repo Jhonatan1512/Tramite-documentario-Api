@@ -38,6 +38,14 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(new { mensaje = "Se registro el movimiento del expediente" });
         }
 
+        [HttpPost("finalizar-movimiento")]
+        [Authorize(Roles = "Personal")]
+        public async Task<ActionResult> FinalizarMovimineot(FinalizarMovimientoDto dto)
+        {
+            await _movimientoService.FinalizarMovimientoAsync(dto, UsuarioId);
+            return Ok(new { mensaje = "Se registro movimiento final" });
+        }
+
         private Guid UsuarioId => _currentUserService.GetUserId();
     }
 }

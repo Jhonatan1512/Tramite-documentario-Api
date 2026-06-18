@@ -23,14 +23,6 @@ namespace ProcessingSystem.Api.Controllers
             _currentUserService = currentUserService;
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Personal")]
-        public async Task<ActionResult> Gett()
-        {
-            var result = await _usuarioRepository.GetAll();
-            return Ok(result);
-        }
-
         [HttpPost("registrarse")]
         public async Task<ActionResult> Crear(UsuariosDto dto)
         {

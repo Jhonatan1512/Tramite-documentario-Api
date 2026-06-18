@@ -9,7 +9,6 @@ namespace ProcessingSystem.Domain.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Task<IEnumerable<Usuarios>> GetAll();
         Task<Usuarios> CrearUsuarioAsync(Usuarios usuario);
         Task<Usuarios?> ObtenerPorDniAsync(string dni);
         Task<Usuarios?> ObtenerPorId(Guid usuarioId);

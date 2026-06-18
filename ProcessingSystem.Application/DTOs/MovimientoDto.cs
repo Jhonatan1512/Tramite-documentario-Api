@@ -28,4 +28,11 @@ namespace ProcessingSystem.Application.DTOs
         public string? ComentarioDerivacion { get; set; } = string.Empty;
         public EstadoMovimiento Estado { get; set; }
     }
+
+    public class FinalizarMovimientoDto
+    {
+        public Guid ExpedienteId { get; set; }
+        public EstadoMovimiento Estado { get; set; }
+        public string ComentarioFinal { get; set; } = string.Empty;
+    }
 }

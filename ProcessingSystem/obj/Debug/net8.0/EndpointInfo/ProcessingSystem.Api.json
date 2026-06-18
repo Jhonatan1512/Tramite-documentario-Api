@@ -368,6 +368,37 @@
         }
       }
     },
+    "/api/Movimiento/finalizar-movimiento": {
+      "post": {
+        "tags": [
+          "Movimiento"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinalizarMovimientoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinalizarMovimientoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinalizarMovimientoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Oficinas": {
       "post": {
         "tags": [
@@ -665,18 +696,6 @@
         }
       }
     },
-    "/api/Usuarios": {
-      "get": {
-        "tags": [
-          "Usuarios"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Usuarios/registrarse": {
       "post": {
         "tags": [
@@ -860,6 +879,23 @@
           "tipoDocumentoId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinalizarMovimientoDto": {
+        "type": "object",
+        "properties": {
+          "expedienteId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "estado": {
+            "$ref": "#/components/schemas/EstadoMovimiento"
+          },
+          "comentarioFinal": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

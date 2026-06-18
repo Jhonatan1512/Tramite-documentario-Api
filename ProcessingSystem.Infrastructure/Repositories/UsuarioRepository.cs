@@ -33,20 +33,8 @@ namespace ProcessingSystem.Infrastructure.Repositories
             return usuario;
         }
 
-        public async Task<IEnumerable<Usuarios>> GetAll() 
-        {
-            var data = new List<Usuarios>
-            {
-                new Usuarios {Id = Guid.NewGuid(), Nombre = "Jhonatan", Apellidos = "Cruzado", Dni = "12345678"},
-                new Usuarios { Id = Guid.NewGuid(), Nombre = "Jhoselin", Apellidos = "Cano", Dni = "14785236" },
-            };
-
-            return await Task.FromResult<IEnumerable<Usuarios>>(data);
-        }
-
         public async Task<string> ObtenerOficinaPersonalAsync(Guid usuarioId)
-        {
-            
+        {            
             var oficinaId = await _context.Usuarios
                 .Where(u => u.UserId == usuarioId)
                 .Select(u => (Guid?)u.OficinaId)
@@ -66,7 +54,9 @@ namespace ProcessingSystem.Infrastructure.Repositories
 
         public async Task<Usuarios?> ObtenerPorId(Guid usuarioId)
         {
-            return await _context.Usuarios.FirstOrDefaultAsync(u => u.UserId == usuarioId);
+            return await _context.Usuarios
+                .Include(u => u.Oficina)
+                .FirstOrDefaultAsync(u => u.UserId == usuarioId);
         }
 
         public async Task<IEnumerable<Usuarios>> ObtenerUsuariosPorListaIdsAsync(List<Guid> ids)

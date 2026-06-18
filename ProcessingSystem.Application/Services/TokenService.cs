@@ -20,7 +20,7 @@ namespace ProcessingSystem.Application.Services
         {
             _configuration = configuration;
         }
-        public string GenerarTokenAsync(IdentityUser<Guid> user, IList<string> roles, string displayName, string oficinaId)
+        public string GenerarTokenAsync(IdentityUser<Guid> user, IList<string> roles, string displayName, string oficinaId, string nombreOficina)
         {
             var claims = new List<Claim>
             {
@@ -29,7 +29,8 @@ namespace ProcessingSystem.Application.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim("nombre", displayName),
                 new Claim("id", user.Id.ToString()),
-                new Claim("oficinaId", oficinaId)
+                new Claim("oficinaId", oficinaId),
+                new Claim("nombreOficina", nombreOficina)
             };
 
             foreach (var role in roles)

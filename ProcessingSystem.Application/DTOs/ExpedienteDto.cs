@@ -50,6 +50,7 @@ namespace ProcessingSystem.Application.DTOs
 
     public class HistorialMovimientosDto
     {
+        public Guid Id { get; set; }
         public string Estado { get; set; } = string.Empty;
         public string ComentarioDerivacion { get; set; } = string.Empty;
         public string? ComentarioFinal { get; set; }
