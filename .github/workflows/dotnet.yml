@@ -20,7 +20,7 @@ jobs:
 
     - name: Restaurar dependencias (Nuget) 
       run: dotnet restore ./ProcessingSystem/ProcessingSystem.sln
-
+ 
     - name: Compilar la solución
       run: dotnet build ./ProcessingSystem/ProcessingSystem.sln --no-restore --configuration Release
 
