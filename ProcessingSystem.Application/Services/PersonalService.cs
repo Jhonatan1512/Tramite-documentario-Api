@@ -131,7 +131,6 @@ namespace ProcessingSystem.Application.Services
                         user.Email = email!;
                     }
                 }
-
                 if (user.OficinaId != Guid.Empty && oficinaDictionary.TryGetValue(user.OficinaId, out var nombreOficina))
                 {
                     user.NombreOficina = nombreOficina;

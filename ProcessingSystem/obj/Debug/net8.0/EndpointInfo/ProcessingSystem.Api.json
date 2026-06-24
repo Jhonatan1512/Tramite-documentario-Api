@@ -757,10 +757,67 @@
           }
         }
       }
+    },
+    "/api/Usuarios/reset-password": {
+      "put": {
+        "tags": [
+          "Usuarios"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarContrasenaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarContrasenaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActualizarContrasenaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuarios/get-perfil": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ActualizarContrasenaDto": {
+        "type": "object",
+        "properties": {
+          "contrasenaActual": {
+            "type": "string",
+            "nullable": true
+          },
+          "contrasenaNueva": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ActualizarMovimientoDto": {
         "type": "object",
         "properties": {
@@ -841,10 +898,6 @@
           "dni": {
             "type": "string",
             "nullable": true
-          },
-          "fechaModificacion": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false

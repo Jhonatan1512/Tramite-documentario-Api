@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessingSystem.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessingSystem.Infrastructure", "..\ProcessingSystem.Infrastructure\ProcessingSystem.Infrastructure.csproj", "{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessingSystem.Tests", "..\ProcessingSystem.Tests\ProcessingSystem.Tests.csproj", "{B3CD8150-C924-4C4D-B072-115A1C54D7C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D33C79D0-04D6-4783-BCC5-7E7C8AB6F53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3CD8150-C924-4C4D-B072-115A1C54D7C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CD8150-C924-4C4D-B072-115A1C54D7C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CD8150-C924-4C4D-B072-115A1C54D7C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CD8150-C924-4C4D-B072-115A1C54D7C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

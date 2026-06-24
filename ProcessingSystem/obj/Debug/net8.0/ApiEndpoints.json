@@ -405,6 +405,16 @@
   },
   {
     "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
+    "Method": "ObtenerPerfil",
+    "RelativePath": "api/Usuarios/get-perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
     "Method": "Crear",
     "RelativePath": "api/Usuarios/registrarse",
     "HttpMethod": "POST",
@@ -414,6 +424,22 @@
       {
         "Name": "dto",
         "Type": "ProcessingSystem.Application.DTOs.UsuariosDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProcessingSystem.Api.Controllers.UsuariosController",
+    "Method": "ActualizarContrasenia",
+    "RelativePath": "api/Usuarios/reset-password",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ProcessingSystem.Application.DTOs.ActualizarContrasenaDto",
         "IsRequired": true
       }
     ],

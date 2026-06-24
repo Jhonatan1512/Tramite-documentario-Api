@@ -10,5 +10,6 @@ namespace ProcessingSystem.Application.Interfaces
     {
         Task<Guid> CrearCuentaAsync(string email, string password);
         Task AsignarRoleAsync(Guid identityRole, string nombreRole);
+        Task ActualizarContrasenaAsync(Guid id, string contrasenaActual, string contrsenaNueva);
     }
 }

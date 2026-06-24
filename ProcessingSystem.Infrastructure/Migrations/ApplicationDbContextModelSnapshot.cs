@@ -117,15 +117,15 @@ namespace ProcessingSystem.Infrastructure.Migrations
                         {
                             Id = new Guid("f22687c4-279e-473d-829d-476775988e40"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b522abd8-0d83-4e04-8c9a-c15799193c0f",
+                            ConcurrencyStamp = "1a43ce77-4cd2-46dc-a35a-152187fcadd9",
                             Email = "admin@ejemplo.gob.pe",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@EJEMPLO.GOB.PE",
                             NormalizedUserName = "ADMIN@EJEMPLO.GOB.PE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL/tTUSuW+dKWcT2J67uVK8HvUcTUwLTJ6ENmsQU/to5w5RS6qyFinPDiQWdF0//fA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFRqnwikmf2bKOlDVUkXm8HM9XqiNg9iPhoFwe6ltOap39ZLOevt/jjwZn3O0W+KSw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f145c25f-c9cb-4c37-a960-43cd11598651",
+                            SecurityStamp = "060b36ef-2f8f-4669-ba50-934d09f9d4d8",
                             TwoFactorEnabled = false,
                             UserName = "admin@ejemplo.gob.pe"
                         });
@@ -422,10 +422,10 @@ namespace ProcessingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("00f0dbb0-99a9-4a8e-bdeb-c46bf13bf627"),
+                            Id = new Guid("39ad7ee1-7f89-4ca0-b46c-fce77fc94720"),
                             EsMesaPartes = true,
                             EstaEliminado = false,
-                            FechaCreacion = new DateTime(2026, 5, 21, 18, 26, 54, 323, DateTimeKind.Local).AddTicks(2696),
+                            FechaCreacion = new DateTime(2026, 6, 19, 10, 55, 13, 14, DateTimeKind.Local).AddTicks(7510),
                             FechaModificacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Nombre = "Mesa de Partes",
                             UsuarioCreacion = "f22687c4-279e-473d-829d-476775988e40"

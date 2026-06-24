@@ -28,11 +28,25 @@ namespace ProcessingSystem.Application.DTOs
         public string Email { get; set; } = string.Empty;
     }
 
+    public class GetPerfilDto
+    {
+        public string Nombre { get; set; } = string.Empty;
+        public string Apellidos { get; set; } = string.Empty;
+        public string Dni { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Oficina {  get; set; } = string.Empty;
+    }
+
     public class ActualizarUsuarioDto
     {
         public string Nombre { get; set; } = string.Empty;
         public string Apellidos { get; set; } = string.Empty;
         public string Dni { get; set; } = string.Empty;
-        public DateTime FechaModificacion {  get; set; } = DateTime.Now;
+    }
+
+    public class ActualizarContrasenaDto
+    {
+        public string ContrasenaActual {  get; set; } = string.Empty;
+        public string ContrasenaNueva {  get; set; } = string.Empty;
     }
 }

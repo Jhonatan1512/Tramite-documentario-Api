@@ -38,6 +38,21 @@ namespace ProcessingSystem.Api.Controllers
             return Ok(new { menssage = "Datos Actualizados" });
         }
 
+        [HttpPut("reset-password")]
+        [Authorize(Roles = "Ciudadano")]
+        public async Task<ActionResult> ActualizarContrasenia(ActualizarContrasenaDto dto)
+        {
+            await _usuarioService.ActualizarContrasenaAsync(UsuarioId, dto);
+            return Ok(new { mensaje = "Contraseña actualizada" });
+        }
+
+        [HttpGet("get-perfil")]
+        public async Task<ActionResult> ObtenerPerfil()
+        {
+            var result = await _usuarioService.ObtenerPerfilAsync(UsuarioId);
+            return Ok(result);
+        }
+
         private Guid UsuarioId => _currentUserService.GetUserId();
     }
 }

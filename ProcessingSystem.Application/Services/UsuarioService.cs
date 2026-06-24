@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using Microsoft.AspNetCore.Identity;
 using ProcessingSystem.Application.DTOs;
 using ProcessingSystem.Application.Interfaces;
 using ProcessingSystem.Domain.Entities;
@@ -11,12 +12,26 @@ namespace ProcessingSystem.Application.Services
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly ICredencialesCiudadanosService _ciudadanosService;
         private readonly IIdentityCiudadanoiService _identityCiudadano;
+        private readonly UserManager<IdentityUser<Guid>> _userManager;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository, ICredencialesCiudadanosService ciudadanosService, IIdentityCiudadanoiService identityCiudadano)
+        public UsuarioService(IUsuarioRepository usuarioRepository, ICredencialesCiudadanosService ciudadanosService, 
+            IIdentityCiudadanoiService identityCiudadano, UserManager<IdentityUser<Guid>> userManager)
         {
             _usuarioRepository = usuarioRepository;
             _ciudadanosService = ciudadanosService;
             _identityCiudadano = identityCiudadano;
+            _userManager = userManager;
+        }
+        
+        public async Task ActualizarContrasenaAsync(Guid id, ActualizarContrasenaDto dto)
+        {
+            var usuario = await _usuarioRepository.ObtenerPorId(id);
+            if(usuario == null)
+            {
+                throw new KeyNotFoundException("El usuario no existe");
+            }
+
+            await _identityCiudadano.ActualizarContrasenaAsync(id, dto.ContrasenaActual, dto.ContrasenaNueva);
         }
 
         public async Task ActualizarUsuarioAsync(Guid id, ActualizarUsuarioDto dto)
@@ -31,6 +46,7 @@ namespace ProcessingSystem.Application.Services
 
             dto.Adapt(usuario);
             usuario.UsuarioModificacion = usuario.Id.ToString();
+            usuario.FechaModificacion = DateTime.Now;
 
             await _usuarioRepository.ActualizarUsuarioAsync(usuario);            
         }
@@ -49,6 +65,23 @@ namespace ProcessingSystem.Application.Services
 
             var result = usuarioDto.Adapt<GetUsuarioDto>();
             result.Email = dto.Email;
+            return result;
+        }
+
+        public async Task<GetPerfilDto> ObtenerPerfilAsync(Guid id)
+        {
+            var usuarioExiste = await _usuarioRepository.ObtenerPorId(id);
+            if (usuarioExiste == null) { throw new KeyNotFoundException("El usuario no existe"); }
+
+            var usuarioIdentity = await _userManager.FindByIdAsync(id.ToString());
+            if (usuarioIdentity == null)
+            {
+                throw new KeyNotFoundException("Usuario de seguridad no encontrado");
+            }
+
+            var result = usuarioExiste.Adapt<GetPerfilDto>();
+            result.Oficina = usuarioExiste.Oficina != null ? usuarioExiste.Oficina.Nombre : "Ciudadano";
+            result.Email = usuarioIdentity.Email!;
             return result;
         }
     }

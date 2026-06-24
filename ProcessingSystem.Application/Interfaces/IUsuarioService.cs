@@ -12,5 +12,7 @@ namespace ProcessingSystem.Application.Interfaces
     {
         Task<GetUsuarioDto> CrearUsuarioAsync(UsuariosDto dto);
         Task ActualizarUsuarioAsync(Guid id, ActualizarUsuarioDto dto);
+        Task ActualizarContrasenaAsync(Guid id, ActualizarContrasenaDto dto);
+        Task<GetPerfilDto> ObtenerPerfilAsync(Guid id);
     }
 }

@@ -14,6 +14,30 @@ namespace ProcessingSystem.Application.Services
             _userManager = userManager;
             _roleManager = roleManager;
         }
+
+        public async Task ActualizarContrasenaAsync(Guid id, string contrasenaActual, string contrsenaNueva)
+        {
+            var userVerificar = await _userManager.FindByIdAsync(id.ToString());
+            if (userVerificar == null)
+            {
+                throw new KeyNotFoundException("Usuario de seguridad no encontrado");
+            }
+
+            var contrasenaValida = await _userManager.CheckPasswordAsync(userVerificar, contrasenaActual);
+            if (!contrasenaValida)
+            {
+                throw new InvalidOperationException("La contraseña actual es incorrecta");
+            }
+
+            var result = await _userManager.ChangePasswordAsync(userVerificar, contrasenaActual, contrsenaNueva);
+
+            if (!result.Succeeded)
+            {
+                var detalleError = result.Errors.First().Description;
+                throw new InvalidOperationException($"Error en la nueva contraseña: {detalleError}");
+            }
+        }
+
         public async Task AsignarRoleAsync(Guid identityRole, string nombreRole)
         {
             var user = await _userManager.FindByIdAsync(identityRole.ToString());

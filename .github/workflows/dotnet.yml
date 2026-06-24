@@ -1,0 +1,36 @@
+name: .NET Core CI
+
+# 1. ¿Cuándo se va a ejecutar este pipeline?
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build-and-test:
+    # El sistema operativo virtual donde correrá el pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+    # Paso A: Clonar el código de tu repositorio en la máquina virtual
+    - name: Cargar el código fuente
+      uses: actions/checkout@v4
+
+    # Paso B: Instalar el SDK de .NET
+    - name: Configurar el SDK de .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x' # Cambia a '9.0.x' si usas .NET 9
+
+    # Paso C: Descargar todos los paquetes Nuget (Moq, Mapster, etc.)
+    - name: Restaurar dependencias (Nuget)
+      run: dotnet restore
+
+    # Paso D: Compilar la aplicación para verificar que no haya errores de sintaxis
+    - name: Compilar la solución
+      run: dotnet build --no-restore --configuration Release
+
+    # Paso E: ¡La hora de la verdad! Ejecutar tus pruebas unitarias
+    - name: Ejecutar Pruebas Unitarias
+      run: dotnet test --no-build --configuration Release --verbosity normal
