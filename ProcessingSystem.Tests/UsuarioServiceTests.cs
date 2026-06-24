@@ -25,8 +25,8 @@ namespace ProcessingSystem.Tests
 
             var storeMock = new Mock<IUserStore<IdentityUser<Guid>>>();
             _userManagerMock = new Mock<UserManager<IdentityUser<Guid>>>(
-                storeMock.Object, null!, null!, null!, null!, null!, null!, null!, null!
-            );
+                storeMock.Object, null!, null!, null!, null!, null!, null!, null!, null!);
+
             _usuarioService = new UsuarioService(
                 _usuarioRepositoryMock.Object,
                 _credencialesCiudadanoMock.Object,

@@ -3,19 +3,10 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\usuarioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\usercontextservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\credencialesciudadanoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\identityciudadanoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\dtos\\usuariosdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuariocontexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +16,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,63 +32,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CredencialesCiudadanoService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\CredencialesCiudadanoService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\CredencialesCiudadanoService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\CredencialesCiudadanoService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\CredencialesCiudadanoService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBsAAAA1AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserContextServiceTests.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwDQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T00:01:26.461Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IdentityCiudadanoService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\IdentityCiudadanoService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\IdentityCiudadanoService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\IdentityCiudadanoService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\IdentityCiudadanoService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T22:11:30.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UsuariosDto.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\DTOs\\UsuariosDto.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAxwCsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T20:46:37.07Z"
+              "WhenOpened": "2026-06-24T16:34:57.013Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwEYAAAAIAAAAAAAAAA==",
+              "Title": "UsuarioContexService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAADQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T19:45:19.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UsuarioServiceTests.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UsuarioServiceTests.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\UsuarioServiceTests.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UsuarioServiceTests.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Tests\\UsuarioServiceTests.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAIwNQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T16:18:53.738Z",
+              "WhenOpened": "2026-06-24T16:33:15.746Z",
               "EditorCaption": ""
             }
           ]

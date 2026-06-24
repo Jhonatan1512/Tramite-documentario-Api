@@ -29,7 +29,7 @@ namespace ProcessingSystem.Application.Services
             {
                 if (usuarioNegocio.EstaEliminado)
                 {
-                    throw new Exception($"El usuario se encuentra inactivo. No puede {accionMensaje}.");
+                    throw new InvalidOperationException($"El usuario se encuentra inactivo. No puede {accionMensaje}.");
                 }
                 auditUserId = usuarioNegocio.Id.ToString();
             }
@@ -38,7 +38,7 @@ namespace ProcessingSystem.Application.Services
                 var usuarioIdentity = await _userManager.FindByIdAsync(usuarioId.ToString());
                 if (usuarioIdentity == null)
                 {
-                    throw new Exception($"El usuario no existe o no esta autorizado para {accionMensaje}");
+                    throw new InvalidOperationException($"El usuario no existe o no esta autorizado para {accionMensaje}");
                 }
 
                 auditUserId = usuarioIdentity.Id.ToString();
