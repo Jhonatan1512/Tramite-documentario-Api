@@ -10,15 +10,16 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    steps:    - name: Cargar el código fuente
+    steps:
+    - name: Cargar el código fuente
       uses: actions/checkout@v4
 
     - name: Configurar el SDK de .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x' 
+        dotnet-version: '8.0.x'
 
-    - name: Restaurar dependencias (Nuget) 
+    - name: Restaurar dependencias (Nuget)
       run: dotnet restore ./ProcessingSystem/ProcessingSystem.sln
  
     - name: Compilar la solución
