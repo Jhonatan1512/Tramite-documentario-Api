@@ -3,10 +3,10 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\usercontextservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tokenservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\usuariocontexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,28 +33,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserContextServiceTests.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Tests\\UserContextServiceTests.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwDQAAAAJAAAAAAAAAA==",
+              "Title": "TokenServiceTests.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TokenServiceTests.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TokenServiceTests.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TokenServiceTests.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TokenServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T16:34:57.013Z",
+              "WhenOpened": "2026-06-24T21:18:26.675Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UsuarioContexService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\UsuarioContexService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAADQAAAAuAAAAAAAAAA==",
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\TokenService.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\TokenService.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\TokenService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCwAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T16:33:15.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T21:11:49.985Z"
             }
           ]
         }

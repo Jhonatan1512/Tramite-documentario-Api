@@ -43,7 +43,7 @@ namespace ProcessingSystem.Application.Services
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
+                audience: _configuration["Jwt:Audiences"],
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(24),
                 signingCredentials: creds

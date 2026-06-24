@@ -1,0 +1,15 @@
+2026-06-24T21:46:58.5664615+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.9.1+cb5afc3bb9bb01ebd75b57f89e8358b914ee2a49
+2026-06-24T21:46:58.5764413+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2026-06-24T21:46:58.5780743+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2026-06-24T21:46:58.5780815+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 21:46:58.545
+2026-06-24T21:46:58.5787138+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 14588
+2026-06-24T21:46:58.5788919+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.19
+2026-06-24T21:46:58.5789214+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.19\System.Private.CoreLib.dll
+2026-06-24T21:46:58.5789353+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2026-06-24T21:46:58.5790092+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\ProcessingSystem.Tests.dll
+2026-06-24T21:46:58.5791839+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\Log --results-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\TestResults --client-port 50176'
+2026-06-24T21:46:58.5807839+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2026-06-24T21:46:58.5939468+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2026-06-24T21:46:58.6049837+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable: 
+2026-06-24T21:46:58.7839329+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: '30ea7c6e-dd24-4152-a360-1387158cd41d' Version: '3.2.2' DisplayName: 'xUnit.net v3 Microsoft.Testing.Platform test framework' Description: 'xUnit.net v3 Microsoft.Testing.Platform test framework'
+2026-06-24T21:46:58.7915730+00:00 xUnit.net INFORMATION xUnit.net v3 In-Process Runner v3.2.2+728c1dce01 (64-bit .NET 8.0.19)
