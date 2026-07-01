@@ -1,0 +1,27 @@
+2026-06-26T15:59:16.2569893+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.9.1+cb5afc3bb9bb01ebd75b57f89e8358b914ee2a49
+2026-06-26T15:59:16.2686830+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2026-06-26T15:59:16.2699667+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2026-06-26T15:59:16.2699723+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 15:59:16.232
+2026-06-26T15:59:16.2704274+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 10280
+2026-06-26T15:59:16.2705492+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.19
+2026-06-26T15:59:16.2705617+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.19\System.Private.CoreLib.dll
+2026-06-26T15:59:16.2705736+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2026-06-26T15:59:16.2706270+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\ProcessingSystem.Tests.dll
+2026-06-26T15:59:16.2707445+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\Log --results-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\TestResults --client-port 64841'
+2026-06-26T15:59:16.2721054+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2026-06-26T15:59:16.2869640+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2026-06-26T15:59:16.2986226+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable: 
+2026-06-26T15:59:16.4773092+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: '30ea7c6e-dd24-4152-a360-1387158cd41d' Version: '3.2.2' DisplayName: 'xUnit.net v3 Microsoft.Testing.Platform test framework' Description: 'xUnit.net v3 Microsoft.Testing.Platform test framework'
+2026-06-26T15:59:16.4848149+00:00 xUnit.net INFORMATION xUnit.net v3 In-Process Runner v3.2.2+728c1dce01 (64-bit .NET 8.0.19)
+2026-06-26T15:59:16.5190888+00:00 xUnit.net INFORMATION   Discovering: ProcessingSystem.Tests
+2026-06-26T15:59:16.5500686+00:00 xUnit.net INFORMATION   Discovered:  ProcessingSystem.Tests
+2026-06-26T15:59:16.5672214+00:00 xUnit.net INFORMATION   Starting:    ProcessingSystem.Tests
+2026-06-26T15:59:16.8641471+00:00 xUnit.net ERROR     ProcessingSystem.Tests.TipoDocumentoServiceTests.Test_ObtenerTodosAsync_userCreacion_null [FAIL]
+2026-06-26T15:59:16.8644237+00:00 xUnit.net INFORMATION       Assert.Throws() Failure: No exception was thrown
+2026-06-26T15:59:16.8644315+00:00 xUnit.net INFORMATION       Expected: typeof(System.Exception)
+2026-06-26T15:59:16.8646803+00:00 xUnit.net INFORMATION       Stack Trace:
+2026-06-26T15:59:16.8649468+00:00 xUnit.net INFORMATION         D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\TipoDocumentoServiceTests.cs(198,0): at ProcessingSystem.Tests.TipoDocumentoServiceTests.Test_ObtenerTodosAsync_userCreacion_null()
+2026-06-26T15:59:16.8649562+00:00 xUnit.net INFORMATION         --- End of stack trace from previous location ---
+2026-06-26T15:59:16.9026584+00:00 xUnit.net INFORMATION   Finished:    ProcessingSystem.Tests (ID = 'a51ad590a729b1b4cf72c77336aa2c4d88370bc9e37d30dda1b93e518da9dcf0')
+2026-06-26T15:59:16.9081814+00:00 xUnit.net INFORMATION === TEST EXECUTION SUMMARY ===
+2026-06-26T15:59:16.9149051+00:00 xUnit.net INFORMATION    ProcessingSystem.Tests  Total: 23, Errors: 0, Failed: 1, Skipped: 0, Not Run: 0, Time: 0.338s

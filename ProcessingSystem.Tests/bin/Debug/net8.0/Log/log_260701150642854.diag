@@ -1,0 +1,38 @@
+2026-07-01T15:06:42.8604478+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Version: 1.9.1+cb5afc3bb9bb01ebd75b57f89e8358b914ee2a49
+2026-07-01T15:06:42.8712107+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging mode: asynchronous
+2026-07-01T15:06:42.8725966+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Logging level: Information
+2026-07-01T15:06:42.8726116+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION CreateBuilderAsync entry time: 15:06:42.836
+2026-07-01T15:06:42.8730520+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION PID: 12284
+2026-07-01T15:06:42.8732170+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime information: win-x64 - .NET 8.0.19
+2026-07-01T15:06:42.8732453+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Runtime location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.19\System.Private.CoreLib.dll
+2026-07-01T15:06:42.8732621+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION IsDynamicCodeSupported: True
+2026-07-01T15:06:42.8733455+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Test module: D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\ProcessingSystem.Tests.dll
+2026-07-01T15:06:42.8734711+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION Command line arguments: '--server --diagnostic --diagnostic-verbosity Information --diagnostic-output-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\bin\Debug\net8.0\Log --results-directory D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem\TestResults --client-port 63772'
+2026-07-01T15:06:42.8747755+00:00 Microsoft.Testing.Platform.Builder.TestApplication INFORMATION TESTINGPLATFORM_DEFAULT_HANG_TIMEOUT: ''
+2026-07-01T15:06:42.8873880+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting RegisterEnvironmentVariablesConfigurationSource: 'True'
+2026-07-01T15:06:42.8964553+00:00 Microsoft.Testing.Platform.Hosts.TestHostBuilder INFORMATION Setting PlatformExitProcessOnUnhandledException: 'False', config file: False environment variable: 
+2026-07-01T15:06:43.0510116+00:00 Microsoft.Testing.Platform.Requests.TestHostTestFrameworkInvoker INFORMATION Test framework UID: '30ea7c6e-dd24-4152-a360-1387158cd41d' Version: '3.2.2' DisplayName: 'xUnit.net v3 Microsoft.Testing.Platform test framework' Description: 'xUnit.net v3 Microsoft.Testing.Platform test framework'
+2026-07-01T15:06:43.0588309+00:00 xUnit.net INFORMATION xUnit.net v3 In-Process Runner v3.2.2+728c1dce01 (64-bit .NET 8.0.19)
+2026-07-01T15:06:43.0970803+00:00 xUnit.net INFORMATION   Discovering: ProcessingSystem.Tests
+2026-07-01T15:06:43.1277795+00:00 xUnit.net INFORMATION   Discovered:  ProcessingSystem.Tests
+2026-07-01T15:06:43.1470812+00:00 xUnit.net INFORMATION   Starting:    ProcessingSystem.Tests
+2026-07-01T15:06:43.5017061+00:00 xUnit.net ERROR     ProcessingSystem.Tests.PersonalServiceTest.ActualizarPersonalTests.ActualizarPersonalAsync_MismoDniPeroCambiaOficina_SoloValidaOficinaSinValidarDni [FAIL]
+2026-07-01T15:06:43.5020347+00:00 xUnit.net INFORMATION       Moq.MockException : 
+2026-07-01T15:06:43.5020433+00:00 xUnit.net INFORMATION       Expected invocation on the mock should never have been performed, but was 1 times: r => r.ObtenerPorDni(It.IsAny<string>())
+2026-07-01T15:06:43.5020442+00:00 xUnit.net INFORMATION       
+2026-07-01T15:06:43.5020448+00:00 xUnit.net INFORMATION       Performed invocations:
+2026-07-01T15:06:43.5020454+00:00 xUnit.net INFORMATION       
+2026-07-01T15:06:43.5020460+00:00 xUnit.net INFORMATION          Mock<IPersonalRepository:3> (r):
+2026-07-01T15:06:43.5020465+00:00 xUnit.net INFORMATION       
+2026-07-01T15:06:43.5020471+00:00 xUnit.net INFORMATION             IPersonalRepository.GetByIdAsync(55fa9bb5-a9f4-49c1-91c8-d9fb501b2455)
+2026-07-01T15:06:43.5020477+00:00 xUnit.net INFORMATION             IPersonalRepository.ObtenerPorDni(null)
+2026-07-01T15:06:43.5020482+00:00 xUnit.net INFORMATION             IPersonalRepository.ActualizarDatosPersonalAsync(Usuarios)
+2026-07-01T15:06:43.5020500+00:00 xUnit.net INFORMATION       
+2026-07-01T15:06:43.5023061+00:00 xUnit.net INFORMATION       Stack Trace:
+2026-07-01T15:06:43.5036113+00:00 xUnit.net INFORMATION         /_/src/Moq/Mock.cs(332,0): at Moq.Mock.Verify(Mock mock, LambdaExpression expression, Times times, String failMessage)
+2026-07-01T15:06:43.5036339+00:00 xUnit.net INFORMATION         /_/src/Moq/Mock`1.cs(840,0): at Moq.Mock`1.Verify[TResult](Expression`1 expression, Func`1 times)
+2026-07-01T15:06:43.5036414+00:00 xUnit.net INFORMATION         D:\DOCUMENT-PROCESSING-SYSTEM\Processing-System\ProcessingSystem.Tests\PersonalServiceTest\ActualizarPersonalTests.cs(57,0): at ProcessingSystem.Tests.PersonalServiceTest.ActualizarPersonalTests.ActualizarPersonalAsync_MismoDniPeroCambiaOficina_SoloValidaOficinaSinValidarDni()
+2026-07-01T15:06:43.5036427+00:00 xUnit.net INFORMATION         --- End of stack trace from previous location ---
+2026-07-01T15:06:43.5117328+00:00 xUnit.net INFORMATION   Finished:    ProcessingSystem.Tests (ID = 'a51ad590a729b1b4cf72c77336aa2c4d88370bc9e37d30dda1b93e518da9dcf0')
+2026-07-01T15:06:43.5158117+00:00 xUnit.net INFORMATION === TEST EXECUTION SUMMARY ===
+2026-07-01T15:06:43.5225524+00:00 xUnit.net INFORMATION    ProcessingSystem.Tests  Total: 38, Errors: 0, Failed: 1, Skipped: 0, Not Run: 0, Time: 0.369s

@@ -3,10 +3,16 @@
   "WorkspaceRootPath": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tipodocumentoservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tipodocumentoservicetests\\tipodocumentoservicetestsbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DEAE0065-032B-4ACA-9971-B5E820C06342}|..\\ProcessingSystem.Application\\ProcessingSystem.Application.csproj|d:\\document-processing-system\\processing-system\\processingsystem.application\\services\\tipodocumentoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tipodocumentoservicetests\\obtenertiposdoctests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tipodocumentoservicetests\\actualizartipodocumentotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B3CD8150-C924-4C4D-B072-115A1C54D7C7}|..\\ProcessingSystem.Tests\\ProcessingSystem.Tests.csproj|d:\\document-processing-system\\processing-system\\processingsystem.tests\\tipodocumentoservicetests\\creartipodocumentotests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -32,28 +38,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TipoDocumentoServiceTests.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAgwF4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ObtenerTiposDocTests.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ObtenerTiposDocTests.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ObtenerTiposDocTests.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ObtenerTiposDocTests.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ObtenerTiposDocTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T14:40:04.522Z",
+              "WhenOpened": "2026-07-01T15:50:07.442Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TipoDocumentoService.cs",
-              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\TipoDocumentoService.cs",
-              "RelativeDocumentMoniker": "..\\ProcessingSystem.Application\\Services\\TipoDocumentoService.cs",
-              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Application\\Services\\TipoDocumentoService.cs",
-              "RelativeToolTip": "..\\ProcessingSystem.Application\\Services\\TipoDocumentoService.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwCwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ActualizarTipoDocumentoTests.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ActualizarTipoDocumentoTests.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ActualizarTipoDocumentoTests.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ActualizarTipoDocumentoTests.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\ActualizarTipoDocumentoTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T14:25:56.744Z",
+              "WhenOpened": "2026-07-01T15:48:08.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CrearTipoDocumentoTests.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\CrearTipoDocumentoTests.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\CrearTipoDocumentoTests.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\CrearTipoDocumentoTests.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\CrearTipoDocumentoTests.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAD0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:34:11.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TipoDocumentoServiceTestsBase.cs",
+              "DocumentMoniker": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\TipoDocumentoServiceTestsBase.cs",
+              "RelativeDocumentMoniker": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\TipoDocumentoServiceTestsBase.cs",
+              "ToolTip": "D:\\DOCUMENT-PROCESSING-SYSTEM\\Processing-System\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\TipoDocumentoServiceTestsBase.cs",
+              "RelativeToolTip": "..\\ProcessingSystem.Tests\\TipoDocumentoServiceTests\\TipoDocumentoServiceTestsBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-01T15:13:15.603Z",
               "EditorCaption": ""
             }
           ]
